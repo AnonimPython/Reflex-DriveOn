@@ -6,6 +6,7 @@ from rxconfig import config
 from .pages.index import index
 from .pages.main import main
 from .pages.login import login
+from .pages.register import register
 from .pages.test import test
 # from .pages.car_detail import car_detail
 
@@ -27,9 +28,13 @@ def index_page() -> rx.Component:
 def index_page() -> rx.Component:
     return main()
 
-@rx.page(route="/login", title="Main")
+@rx.page(route="/login", title="Login")
 def login_page() -> rx.Component:
     return login()
+
+@rx.page(route="/register", title="Register")
+def test_page() -> rx.Component:
+    return register()
 
 # @rx.page(route="/car/[id]")
 # def car_detail_page():

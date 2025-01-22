@@ -28,7 +28,7 @@ class FilterButtonsState(rx.State):
 
 
 
-name = "EVG"
+
 def main() -> rx.Component:
     return rx.box(
         rx.mobile_only(
@@ -46,7 +46,7 @@ def main() -> rx.Component:
                                 border_radius="50%",
                             ),
                             rx.text(
-                                f"Hey! {name}",
+                                f"Hey! {UserData.username}",
                                 color="white",
                                 style={"align-items": "center","align-self": "center","font-size": "20px"},
                             ),

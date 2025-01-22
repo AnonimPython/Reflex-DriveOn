@@ -21,5 +21,14 @@ class Cars(rx.Model, table=True):
     @property
     def url_tour(self) -> str:
         return f"/car/{self.id}"
+    
+    
+#* REGISTER
+class RegisterUser(rx.Model, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    username: str = Field(min_length=3, max_length=50)
+    mail: str
+    password: str
+    confirm_password: str
 
     

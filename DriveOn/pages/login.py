@@ -11,6 +11,15 @@ class LoginUser(UserData):
     def handle_submit(self, form_data: dict):
         """Handle form submission and save to localStorage"""
         self.form_data = form_data
+        try:
+          # Basic validation
+            if form_data["password"] != form_data["confirm_password"]:
+                pass
+        except:
+          print('Something went wrong')
+        finally:
+          print('The try except is finished')
+          
         
         # Get values from form
         mail = form_data["mail"]
@@ -50,11 +59,10 @@ def login() -> rx.Component:
                     align_items="center",
                     align_self="center",
                     text_align="center",
-                ),
+            ),
                 
                 rx.form.root(
                    rx.center(
-                        
                         rx.vstack(
                             # mail
                             rx.input(

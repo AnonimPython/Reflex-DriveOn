@@ -3,7 +3,7 @@
 
 import { ErrorBoundary } from "react-error-boundary"
 import { Fragment, useCallback, useContext, useEffect, useState } from "react"
-import { ColorModeContext, EventLoopContext } from "$/utils/context"
+import { ColorModeContext, EventLoopContext, StateContexts } from "$/utils/context"
 import { Event, getBackendURL, isTrue, refs } from "$/utils/state"
 import { jsx, keyframes } from "@emotion/react"
 import { ArrowRightIcon as LucideArrowRightIcon, HouseIcon as LucideHouseIcon, SearchIcon as LucideSearchIcon, UserIcon as LucideUserIcon, WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
@@ -13,6 +13,16 @@ import { Box as RadixThemesBox, Button as RadixThemesButton, Container as RadixT
 import NextLink from "next/link"
 import NextHead from "next/head"
 
+
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
 
 
 export function Div_602c14884fa2de27f522fe8f94374b02 () {
@@ -65,17 +75,47 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
+export function Link_ba14b7dcd4d4bff60c87e3770ac773e3 () {
+  
 
 
-export function Errorboundary_a71f54c4ff7c555ce92cca315641c775 () {
+
+
+
+  
+  return (
+    <RadixThemesLink css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} href={"#"} target={(false ? "_blank" : "")}>
+
+<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
+</RadixThemesLink>
+  )
+}
+
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Errorboundary_c49a52f7e975b3fb6ebb84e9445a8d9a () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -106,10 +146,7 @@ export function Errorboundary_a71f54c4ff7c555ce92cca315641c775 () {
 <RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"row"} gap={"3"}>
 
 <img css={({ ["height"] : "50px", ["width"] : "50px", ["borderRadius"] : "50%" })} src={"https://upload.wikimedia.org/wikipedia/ru/thumb/4/4c/Neo2.jpg/274px-Neo2.jpg"}/>
-<RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
-
-{"Hey! EVG"}
-</RadixThemesText>
+<Text_29baa859d222136567f3da982789b137/>
 </RadixThemesFlex>
 </RadixThemesBox>
 <RadixThemesBox>
@@ -440,32 +477,9 @@ export function Errorboundary_a71f54c4ff7c555ce92cca315641c775 () {
   )
 }
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+export function Text_29baa859d222136567f3da982789b137 () {
   
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
-export function Link_ba14b7dcd4d4bff60c87e3770ac773e3 () {
-  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
 
 
 
@@ -473,10 +487,10 @@ export function Link_ba14b7dcd4d4bff60c87e3770ac773e3 () {
 
   
   return (
-    <RadixThemesLink css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} href={"#"} target={(false ? "_blank" : "")}>
+    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
 
-<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
-</RadixThemesLink>
+{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
+</RadixThemesText>
   )
 }
 
@@ -487,6 +501,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_a71f54c4ff7c555ce92cca315641c775/>
+    <Errorboundary_c49a52f7e975b3fb6ebb84e9445a8d9a/>
   )
 }
