@@ -10,7 +10,6 @@ def car_card(
         rent_price: str,
     ):
     return rx.box(
-            
             rx.image(
                 f"{img_url}",
                 width="100%",
@@ -18,7 +17,7 @@ def car_card(
                 object_fit="cover",
             ),
             rx.box(
-                background="rgba(0, 0, 0, 0.5)",  # Полупрозрачный черный фон
+                background="rgba(0, 0, 0, 0.5)",
                 position="absolute",
                 top="0",
                 left="0",

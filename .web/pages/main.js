@@ -31,6 +31,16 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
 export function Link_ba14b7dcd4d4bff60c87e3770ac773e3 () {
   
 
@@ -103,16 +113,6 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
     <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
   )
 }
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
 
 export default function Component() {
     
