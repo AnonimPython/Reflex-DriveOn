@@ -112,5 +112,6 @@ def login() -> rx.Component:
                     on_submit=LoginUser.handle_submit,
                 ), 
             ),
+            rx.center(rx.hstack(rx.text("Don't have account?",),rx.link("Register", href="/register",color=YELLOW),color="white"),style={"margin-top":"10%"}),
         ),
     ),

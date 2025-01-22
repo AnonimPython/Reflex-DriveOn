@@ -73,6 +73,13 @@ def register() -> rx.Component:
                 height="30vh",
                 width="100%",
             ),
+        rx.box(
+            rx.text("Login ",color="white",font_size="30px"),
+            rx.text("To Drive Your Dreem",color=YELLOW ,font_size="30px",weight="bold"),
+            align_items="center",
+            align_self="center",
+            text_align="center",
+        ),
         # inputs
         rx.box(
             # ! in release change to rx.form()
@@ -84,9 +91,9 @@ def register() -> rx.Component:
                                 rx.input.slot(
                                     rx.icon(tag="user"),color="white",
                                 ),
-                                #! max 12 simbols
                                 name="username",
                                 placeholder="Username",
+                                max_length=12,
                                 radius="large",
                                 style=inputs_style,
                             ),
@@ -130,7 +137,7 @@ def register() -> rx.Component:
                                 background_color=YELLOW,
                                 color="black",
                             ),
-                            gap="50px"
+                            gap="20px"
                         ),    
                     ),
                     style={"margin-top":"10%"},
