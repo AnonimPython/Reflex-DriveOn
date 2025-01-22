@@ -4,12 +4,13 @@
 import { ErrorBoundary } from "react-error-boundary"
 import { Fragment, useCallback, useContext, useEffect, useState } from "react"
 import { ColorModeContext, EventLoopContext } from "$/utils/context"
-import { Event, getBackendURL, isTrue, refs } from "$/utils/state"
+import { Event, getBackendURL, getRefValue, getRefValues, isTrue, refs } from "$/utils/state"
 import { jsx, keyframes } from "@emotion/react"
-import { WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
+import { LockIcon as LucideLockIcon, MailIcon as LucideMailIcon, UserIcon as LucideUserIcon, WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
 import { toast, Toaster } from "sonner"
 import env from "$/env.json"
-import { Box as RadixThemesBox } from "@radix-ui/themes"
+import { Box as RadixThemesBox, Button as RadixThemesButton, Flex as RadixThemesFlex, Text as RadixThemesText, TextField as RadixThemesTextField } from "@radix-ui/themes"
+import { Root as RadixFormRoot } from "@radix-ui/react-form"
 import NextHead from "next/head"
 
 
@@ -31,7 +32,7 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
-export function Errorboundary_47340ca7330d79d41d9ea0e307ec0463 () {
+export function Errorboundary_42880cc315055c043978e9d5098f6f46 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -49,19 +50,103 @@ export function Errorboundary_47340ca7330d79d41d9ea0e307ec0463 () {
 <Div_602c14884fa2de27f522fe8f94374b02/>
 <Toaster_6e6ebf8d7ce589d59b7d382fb7576edf/>
 </Fragment>
+<Fragment>
+
 <RadixThemesBox>
 
-<RadixThemesBox css={({ ["@media screen and (min-width: 0)"] : ({ ["display"] : "block" }), ["@media screen and (min-width: 30em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 48em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 62em)"] : ({ ["display"] : "none" }) })}/>
+<RadixThemesBox css={({ ["@media screen and (min-width: 0)"] : ({ ["display"] : "block" }), ["@media screen and (min-width: 30em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 48em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 62em)"] : ({ ["display"] : "none" }) })}>
+
+<RadixThemesBox css={({ ["background"] : "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://hips.hearstapps.com/hmg-prod/images/2024-chevrolet-camaro-ss-collectors-edition-1-647e1933c6c20.jpg?crop=0.827xw:0.853xh;0.0946xw,0.129xh&resize=2048:*')", ["backgroundSize"] : "cover", ["backgroundPosition"] : "center", ["height"] : "35vh", ["width"] : "100%" })}/>
+<RadixThemesBox>
+
+<RadixThemesBox css={({ ["alignItems"] : "center", ["alignSelf"] : "center", ["textAlign"] : "center" })}>
+
+<RadixThemesText as={"p"} css={({ ["color"] : "white", ["fontSize"] : "30px" })}>
+
+{"Register "}
+</RadixThemesText>
+<RadixThemesText as={"p"} css={({ ["color"] : "#e8ea00", ["fontSize"] : "30px" })} weight={"bold"}>
+
+{"To Take Your Car"}
+</RadixThemesText>
 </RadixThemesBox>
+<Root_3162d7909af4f05640617b481e344fe3/>
+</RadixThemesBox>
+</RadixThemesBox>
+</RadixThemesBox>
+</Fragment>
 <NextHead>
 
 <title>
 
-{"Add Car"}
+{"Main"}
 </title>
 <meta content={"favicon.ico"} property={"og:image"}/>
 </NextHead>
 </ErrorBoundary>
+  )
+}
+
+export function Root_3162d7909af4f05640617b481e344fe3 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+  
+    const handleSubmit_797869956a0d3e5f129c889b5650c0c4 = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({  })};
+
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___login____login_user.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+
+        if (false) {
+            $form.reset()
+        }
+    })
+    
+
+
+
+
+  
+  return (
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "5%" })} onSubmit={handleSubmit_797869956a0d3e5f129c889b5650c0c4}>
+
+<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["gap"] : "50px" })} direction={"column"} gap={"3"}>
+
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} name={"mail"} placeholder={"Mail"} radius={"large"}>
+
+<RadixThemesTextField.Slot>
+
+<LucideMailIcon css={({ ["color"] : "white" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} name={"username"} placeholder={"usernameTEST"} radius={"large"}>
+
+<RadixThemesTextField.Slot>
+
+<LucideUserIcon css={({ ["color"] : "white" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} name={"password"} placeholder={"Password"} radius={"large"}>
+
+<RadixThemesTextField.Slot>
+
+<LucideLockIcon css={({ ["color"] : "white" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesButton css={({ ["width"] : "300px", ["height"] : "50px", ["font-size"] : "20px", ["alignSelf"] : "center", ["alignItems"] : "center", ["backgroundColor"] : "#e8ea00", ["color"] : "black", ["borderRadius"] : "30px" })} type={"submit"}>
+
+<RadixThemesText as={"p"}>
+
+{"Login"}
+</RadixThemesText>
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixThemesFlex>
+</RadixFormRoot>
   )
 }
 
@@ -139,6 +224,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_47340ca7330d79d41d9ea0e307ec0463/>
+    <Errorboundary_42880cc315055c043978e9d5098f6f46/>
   )
 }

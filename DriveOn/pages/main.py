@@ -1,5 +1,4 @@
 import reflex as rx
-from rxconfig import config
 
 from ..state import UserData
 from ..ui.navbar import navbar
