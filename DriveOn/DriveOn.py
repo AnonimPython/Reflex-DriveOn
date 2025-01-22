@@ -5,6 +5,7 @@ from rxconfig import config
 #* PAGES
 from .pages.index import index
 from .pages.main import main
+from .pages.test import test
 # from .pages.car_detail import car_detail
 
 
@@ -29,6 +30,9 @@ def index_page() -> rx.Component:
 # def car_detail_page():
 #     return car_detail()
 
+@rx.page(route="/test", title="test")
+def test_page() -> rx.Component:
+    return test()
 
 #* ADMIN
 @rx.page(route="/add_car", title="Add Car")

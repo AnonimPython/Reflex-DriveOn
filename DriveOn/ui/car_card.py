@@ -14,7 +14,8 @@ def car_card(
             rx.image(
                 f"{img_url}",
                 width="100%",
-                height="auto",
+                height="100%",
+                object_fit="cover",
             ),
             rx.box(
                 background="rgba(0, 0, 0, 0.5)",  # Полупрозрачный черный фон
@@ -85,6 +86,7 @@ def car_card(
                 ),
             ),
                     position="relative",
-                    width="fit-content",
-                    height="fit-content",
+                    width="100%",
+                    height="322px",
+                    overflow="hidden",
                 ),

@@ -137,6 +137,12 @@ def main() -> rx.Component:
                     car_model="Huracan",
                     rent_price="2500",
                 ),
+                car_card(
+                    img_url="https://gateauto.ru/upload/resize_cache/iblock/752/678_423_2/ixbfkr745ee0ykz31q9yv3zw6l6lj27g.webp",
+                    company_name="Ferrari",
+                    car_model="Encho",
+                    rent_price="3300",
+                ),
                 width="100%",
                 margin_top="30px",
             ), 

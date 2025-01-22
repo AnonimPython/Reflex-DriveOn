@@ -6,3 +6,6 @@ assets/external/
 .env
 /alembic/
 alembic.ini
+
+test.py
+/test_components/

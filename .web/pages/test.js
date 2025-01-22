@@ -8,8 +8,9 @@ import { WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
 import { keyframes } from "@emotion/react"
 import { toast, Toaster } from "sonner"
 import env from "$/env.json"
-import { Box as RadixThemesBox, Button as RadixThemesButton, Flex as RadixThemesFlex, Heading as RadixThemesHeading, Text as RadixThemesText } from "@radix-ui/themes"
-import { useClientSideRouting } from "$/utils/client_side_routing"
+import { Box as RadixThemesBox, Flex as RadixThemesFlex, Heading as RadixThemesHeading } from "@radix-ui/themes"
+import Zoom from "react-medium-image-zoom"
+import "react-medium-image-zoom/dist/styles.css"
 import NextHead from "next/head"
 
 
@@ -100,9 +101,7 @@ const pulse = keyframes`
 
 export default function Component() {
     
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
 
-  const routeNotFound = useClientSideRouting()
 
 
 
@@ -114,48 +113,29 @@ export default function Component() {
 <Div_602c14884fa2de27f522fe8f94374b02/>
 <Toaster_6e6ebf8d7ce589d59b7d382fb7576edf/>
 </Fragment>
-<Fragment>
+<RadixThemesBox css={({ ["background"] : "white" })}>
 
-{isTrue(routeNotFound) ? (
-  <Fragment>
+<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["height"] : "100vh" })}>
 
-<RadixThemesFlex align={"center"} className={"rx-Stack"} css={({ ["minHeight"] : "100vh", ["background"] : "radial-gradient(circle at center, #F7FAFC, #EDF2F7)" })} direction={"column"} justify={"center"} gap={"2"}>
+<RadixThemesFlex align={"center"} className={"rx-Stack"} css={({ ["fontSize"] : "2em" })} direction={"column"} gap={"7"}>
 
-<RadixThemesBox css={({ ["padding"] : "2em" })}>
+<RadixThemesHeading size={"9"}>
 
-<RadixThemesHeading css={({ ["fontSize"] : "-2em", ["background"] : "linear-gradient(135deg, #6B73FF 0%, #000DFF 100%)", ["backgroundClip"] : "text", ["color"] : "transparent", ["fontWeight"] : "bold" })}>
-
-{"404"}
+{"Welcome to Reflex!"}
 </RadixThemesHeading>
-<RadixThemesText as={"p"} css={({ ["fontSize"] : "1.5em", ["color"] : "#4A5568", ["marginTop"] : "1em" })}>
+<Zoom>
 
-{"Page not found"}
-</RadixThemesText>
-<RadixThemesText as={"p"} css={({ ["color"] : "#718096", ["marginTop"] : "0.5em" })}>
-
-{"Sorry, we cannot find the page you are looking for."}
-</RadixThemesText>
-</RadixThemesBox>
-<RadixThemesButton color={"blue"} css={({ ["marginTop"] : "2em" })} onClick={((...args) => (addEvents([(Event("_redirect", ({ ["path"] : "/tours", ["external"] : false, ["replace"] : false }), ({  })))], args, ({  }))))} size={"3"} variant={"solid"}>
-
-{"Go back"}
-</RadixThemesButton>
+<img css={({ ["width"] : "400px" })} src={"https://gateauto.ru/upload/resize_cache/iblock/752/678_423_2/ixbfkr745ee0ykz31q9yv3zw6l6lj27g.webp"}/>
+</Zoom>
 </RadixThemesFlex>
-</Fragment>
-) : (
-  <Fragment>
-
-
-</Fragment>
-)}
-</Fragment>
+</RadixThemesFlex>
+</RadixThemesBox>
 <NextHead>
 
 <title>
 
-{"404 - Page not found"}
+{"test"}
 </title>
-<meta content={"The page was not found"} name={"description"}/>
 <meta content={"favicon.ico"} property={"og:image"}/>
 </NextHead>
 </Fragment>
