@@ -9,7 +9,7 @@ from ..ui.colors import *
 def index() -> rx.Component:
     return rx.box(
         rx.mobile_only(
-            # image
+            #* image
             rx.box(
                 background="linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://wallpapers.com/images/hd/dodge-challenger-4k-441zr63yqu5ad0kh.jpg')",
                 background_size="cover",
