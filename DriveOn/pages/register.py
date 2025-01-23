@@ -1,5 +1,8 @@
 import reflex as rx
 from cryptography.fernet import Fernet
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy import select
 
 from ..database import RegisterUser
 
@@ -25,6 +28,25 @@ class Register(rx.State):
                     rx.set_value("confirm_password", ""),  # Clear confirm field
                     rx.toast.error("Passwords do not match")
                 ]
+                
+            #  Check if the user already exists
+            with rx.session() as session:
+                existing_user = session.exec(
+                    select(RegisterUser ).filter(
+                        (RegisterUser .username == form_data["username"]) |
+                        (RegisterUser .mail == form_data["mail"])
+                    )
+                ).scalars().first()
+
+                if existing_user:
+                    return [
+                        rx.set_value("username", ""), 
+                        rx.set_value("mail", ""),  
+                        rx.set_value("password", ""),  
+                        rx.set_value("confirm_password", ""),  
+                        rx.toast.warning("User with this username or email already exists")
+                    ]
+
             
             # connect Encrypt
             key = Fernet.generate_key()
@@ -74,7 +96,7 @@ def register() -> rx.Component:
                 width="100%",
             ),
         rx.box(
-            rx.text("Login ",color="white",font_size="30px"),
+            rx.text("Register ",color="white",font_size="30px"),
             rx.text("To Drive Your Dreem",color=YELLOW ,font_size="30px",weight="bold"),
             align_items="center",
             align_self="center",
@@ -92,6 +114,7 @@ def register() -> rx.Component:
                                     rx.icon(tag="user"),color="white",
                                 ),
                                 name="username",
+                                id="username",
                                 placeholder="Username",
                                 max_length=12,
                                 radius="large",
@@ -102,6 +125,7 @@ def register() -> rx.Component:
                                     rx.icon(tag="mail"),color="white",
                                 ),
                                 name="mail",
+                                id="mail",
                                 placeholder="Mail",
                                 radius="large",
                                 style=inputs_style,

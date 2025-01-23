@@ -17,8 +17,8 @@ def navbar_link(icon: str, url: str) -> rx.Component:
 def navbar():
     return rx.box(
         rx.hstack(
-            navbar_link("house", "/tours"),
-            navbar_link("search", "/tours"),
+            navbar_link("house", "/main"),
+            navbar_link("search", "/search"),
             navbar_link("user", "/profile"),
             width="100%",
             style={

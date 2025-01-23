@@ -54,7 +54,7 @@ def login() -> rx.Component:
             ),
             rx.box(
                 rx.box(
-                    rx.text("Register ",color="white",font_size="30px"),
+                    rx.text("Login ",color="white",font_size="30px"),
                     rx.text("To Take Your Car",color=YELLOW ,font_size="30px",weight="bold"),
                     align_items="center",
                     align_self="center",

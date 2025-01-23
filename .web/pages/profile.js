@@ -3,20 +3,62 @@
 
 import { ErrorBoundary } from "react-error-boundary"
 import { Fragment, useCallback, useContext, useEffect, useState } from "react"
-import { ColorModeContext, EventLoopContext } from "$/utils/context"
+import { ColorModeContext, EventLoopContext, StateContexts } from "$/utils/context"
 import { Event, getBackendURL, isTrue, refs } from "$/utils/state"
 import { jsx, keyframes } from "@emotion/react"
 import { WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
 import { toast, Toaster } from "sonner"
 import env from "$/env.json"
-import { Box as RadixThemesBox, Flex as RadixThemesFlex, Heading as RadixThemesHeading } from "@radix-ui/themes"
-import Zoom from "react-medium-image-zoom"
-import "react-medium-image-zoom/dist/styles.css"
+import { Box as RadixThemesBox, Text as RadixThemesText } from "@radix-ui/themes"
 import NextHead from "next/head"
 
 
 
-export function Errorboundary_5ea71b2b4d8ee5c3fc140c4a569b994f () {
+export function Text_33eb061b86ed2018127af7fd97813f22 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"}>
+
+{reflex___state____state__drive_on___state____user_data.mail}
+</RadixThemesText>
+  )
+}
+
+export function Text_50a9dea953a49c05ed0a9f11c24746d5 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"}>
+
+{reflex___state____state__drive_on___state____user_data.username}
+</RadixThemesText>
+  )
+}
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
+export function Errorboundary_62c8dc5d198b30c2453d7f646a9604e7 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -34,44 +76,25 @@ export function Errorboundary_5ea71b2b4d8ee5c3fc140c4a569b994f () {
 <Div_602c14884fa2de27f522fe8f94374b02/>
 <Toaster_6e6ebf8d7ce589d59b7d382fb7576edf/>
 </Fragment>
-<RadixThemesBox css={({ ["background"] : "white" })}>
+<RadixThemesBox>
 
-<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["height"] : "100vh" })}>
+<RadixThemesBox css={({ ["color"] : "white", ["@media screen and (min-width: 0)"] : ({ ["display"] : "block" }), ["@media screen and (min-width: 30em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 48em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 62em)"] : ({ ["display"] : "none" }) })}>
 
-<RadixThemesFlex align={"center"} className={"rx-Stack"} css={({ ["fontSize"] : "2em" })} direction={"column"} gap={"7"}>
-
-<RadixThemesHeading size={"9"}>
-
-{"Welcome to Reflex!"}
-</RadixThemesHeading>
-<Zoom>
-
-<img css={({ ["width"] : "400px" })} src={"https://gateauto.ru/upload/resize_cache/iblock/752/678_423_2/ixbfkr745ee0ykz31q9yv3zw6l6lj27g.webp"}/>
-</Zoom>
-</RadixThemesFlex>
-</RadixThemesFlex>
+<Text_50a9dea953a49c05ed0a9f11c24746d5/>
+<Text_33eb061b86ed2018127af7fd97813f22/>
+</RadixThemesBox>
 </RadixThemesBox>
 <NextHead>
 
 <title>
 
-{"test"}
+{"Profile"}
 </title>
 <meta content={"favicon.ico"} property={"og:image"}/>
 </NextHead>
 </ErrorBoundary>
   )
 }
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
 
 export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
@@ -154,6 +177,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_5ea71b2b4d8ee5c3fc140c4a569b994f/>
+    <Errorboundary_62c8dc5d198b30c2453d7f646a9604e7/>
   )
 }
