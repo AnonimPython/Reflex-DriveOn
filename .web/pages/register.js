@@ -16,7 +16,24 @@ import NextHead from "next/head"
 
 
 
-export function Errorboundary_202fcb57c060311cb91dac71169e01a2 () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
+export function Errorboundary_4e259002acaeefce9424ceaac7bf2e34 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -52,7 +69,7 @@ export function Errorboundary_202fcb57c060311cb91dac71169e01a2 () {
 </RadixThemesBox>
 <RadixThemesBox>
 
-<Root_78506a063db23b9026d7476ca0a0199d/>
+<Root_a0a642b9260f4c45c34e85c4fb459e9f/>
 </RadixThemesBox>
 </RadixThemesBox>
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["margin-top"] : "10%" })}>
@@ -95,40 +112,7 @@ const pulse = keyframes`
 `
 
 
-export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
-  
-  const { resolvedColorMode } = useContext(ColorModeContext)
-
-  refs['__toast'] = toast
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
-  const [userDismissed, setUserDismissed] = useState(false);
-  (useEffect(
-() => {
-    if ((connectErrors.length >= 2)) {
-        if (!userDismissed) {
-            toast.error(
-                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
-                {...toast_props, onDismiss: () => setUserDismissed(true)},
-            )
-        }
-    } else {
-        toast.dismiss("websocket-error");
-        setUserDismissed(false);  // after reconnection reset dismissed state
-    }
-}
-, [connectErrors]))
-
-
-
-
-  
-  return (
-    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
-  )
-}
-
-export function Root_78506a063db23b9026d7476ca0a0199d () {
+export function Root_a0a642b9260f4c45c34e85c4fb459e9f () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
   const ref_username = useRef(null); refs["ref_username"] = ref_username;
@@ -137,12 +121,12 @@ export function Root_78506a063db23b9026d7476ca0a0199d () {
   const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
 
   
-    const handleSubmit_7d2a110dfa373bc0e6a25795b29e781b = useCallback((ev) => {
+    const handleSubmit_43f7ab03df76fbe4934654124736b2ff = useCallback((ev) => {
         const $form = ev.target
         ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["username"] : getRefValue(refs["ref_username"]), ["mail"] : getRefValue(refs["ref_mail"]), ["password"] : getRefValue(refs["ref_password"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]) })};
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["mail"] : getRefValue(refs["ref_mail"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["password"] : getRefValue(refs["ref_password"]), ["username"] : getRefValue(refs["ref_username"]) })};
 
-        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
 
         if (false) {
             $form.reset()
@@ -155,7 +139,7 @@ export function Root_78506a063db23b9026d7476ca0a0199d () {
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_7d2a110dfa373bc0e6a25795b29e781b}>
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_43f7ab03df76fbe4934654124736b2ff}>
 
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
 
@@ -202,20 +186,36 @@ export function Root_78506a063db23b9026d7476ca0a0199d () {
   )
 }
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
+export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const { resolvedColorMode } = useContext(ColorModeContext)
 
+  refs['__toast'] = toast
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
+  const [userDismissed, setUserDismissed] = useState(false);
+  (useEffect(
+() => {
+    if ((connectErrors.length >= 2)) {
+        if (!userDismissed) {
+            toast.error(
+                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
+                {...toast_props, onDismiss: () => setUserDismissed(true)},
+            )
+        }
+    } else {
+        toast.dismiss("websocket-error");
+        setUserDismissed(false);  // after reconnection reset dismissed state
+    }
+}
+, [connectErrors]))
 
 
 
 
   
   return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
+    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
   )
 }
 
@@ -250,6 +250,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_202fcb57c060311cb91dac71169e01a2/>
+    <Errorboundary_4e259002acaeefce9424ceaac7bf2e34/>
   )
 }

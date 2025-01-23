@@ -6,10 +6,11 @@ import { Fragment, useCallback, useContext, useEffect, useState } from "react"
 import { ColorModeContext, EventLoopContext, StateContexts } from "$/utils/context"
 import { Event, getBackendURL, isTrue, refs } from "$/utils/state"
 import { jsx, keyframes } from "@emotion/react"
-import { WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
+import { HouseIcon as LucideHouseIcon, SearchIcon as LucideSearchIcon, UserIcon as LucideUserIcon, WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
 import { toast, Toaster } from "sonner"
 import env from "$/env.json"
-import { Box as RadixThemesBox, Text as RadixThemesText } from "@radix-ui/themes"
+import { Box as RadixThemesBox, Flex as RadixThemesFlex, Link as RadixThemesLink, Text as RadixThemesText } from "@radix-ui/themes"
+import NextLink from "next/link"
 import NextHead from "next/head"
 
 
@@ -31,9 +32,9 @@ export function Text_33eb061b86ed2018127af7fd97813f22 () {
   )
 }
 
-export function Text_50a9dea953a49c05ed0a9f11c24746d5 () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
 
 
 
@@ -41,10 +42,10 @@ export function Text_50a9dea953a49c05ed0a9f11c24746d5 () {
 
   
   return (
-    <RadixThemesText as={"p"}>
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
 
-{reflex___state____state__drive_on___state____user_data.username}
-</RadixThemesText>
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
   )
 }
 
@@ -58,7 +59,7 @@ const pulse = keyframes`
 `
 
 
-export function Errorboundary_62c8dc5d198b30c2453d7f646a9604e7 () {
+export function Errorboundary_1ad940c1773340e012a5556af3b4e563 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -80,8 +81,39 @@ export function Errorboundary_62c8dc5d198b30c2453d7f646a9604e7 () {
 
 <RadixThemesBox css={({ ["color"] : "white", ["@media screen and (min-width: 0)"] : ({ ["display"] : "block" }), ["@media screen and (min-width: 30em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 48em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 62em)"] : ({ ["display"] : "none" }) })}>
 
+<RadixThemesBox/>
 <Text_50a9dea953a49c05ed0a9f11c24746d5/>
 <Text_33eb061b86ed2018127af7fd97813f22/>
+<Fragment>
+
+<RadixThemesBox css={({ ["position"] : "fixed", ["bottom"] : "30px", ["left"] : "50%", ["transform"] : "translate(-50%, 0)", ["width"] : "50%", ["height"] : "70px", ["borderRadius"] : "50px", ["alignItems"] : "center", ["justifyContent"] : "center", ["alignSelf"] : "center", ["zIndex"] : "99", ["backgroundColor"] : "#232323" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["align-items"] : "center", ["justify-content"] : "center", ["padding"] : "8px", ["width"] : "100%" })} direction={"row"} gap={"3"}>
+
+<RadixThemesLink asChild={true} css={({ ["background-color"] : "#e8ea00", ["border-radius"] : "50%", ["padding"] : "16px", ["color"] : "#272727", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })}>
+
+<NextLink href={"/main"} passHref={true}>
+
+<LucideHouseIcon css={({ ["color"] : "var(--current-color)" })}/>
+</NextLink>
+</RadixThemesLink>
+<RadixThemesLink asChild={true} css={({ ["background-color"] : "#e8ea00", ["border-radius"] : "50%", ["padding"] : "16px", ["color"] : "#272727", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })}>
+
+<NextLink href={"/search"} passHref={true}>
+
+<LucideSearchIcon css={({ ["color"] : "var(--current-color)" })}/>
+</NextLink>
+</RadixThemesLink>
+<RadixThemesLink asChild={true} css={({ ["background-color"] : "#e8ea00", ["border-radius"] : "50%", ["padding"] : "16px", ["color"] : "#272727", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })}>
+
+<NextLink href={"/profile"} passHref={true}>
+
+<LucideUserIcon css={({ ["color"] : "var(--current-color)" })}/>
+</NextLink>
+</RadixThemesLink>
+</RadixThemesFlex>
+</RadixThemesBox>
+</Fragment>
 </RadixThemesBox>
 </RadixThemesBox>
 <NextHead>
@@ -129,23 +161,6 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
 export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
@@ -170,6 +185,23 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
+export function Text_50a9dea953a49c05ed0a9f11c24746d5 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"}>
+
+{reflex___state____state__drive_on___state____user_data.username}
+</RadixThemesText>
+  )
+}
+
 export default function Component() {
     
 
@@ -177,6 +209,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_62c8dc5d198b30c2453d7f646a9604e7/>
+    <Errorboundary_1ad940c1773340e012a5556af3b4e563/>
   )
 }

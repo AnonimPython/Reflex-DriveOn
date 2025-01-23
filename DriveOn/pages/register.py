@@ -10,9 +10,9 @@ from ..state import UserData
 from ..ui.colors import *
 
 
-class Register(rx.State):
-    username: str = ""
-    mail: str = ""
+class Register(UserData):
+    form_username: str = ""
+    form_mail: str = ""
     password: str = ""
     confirm_password: str = ""
     
@@ -54,6 +54,12 @@ class Register(rx.State):
             # Encrypt password
             password = cipher_suite.encrypt(form_data["password"].encode())
             confirm_password = cipher_suite.encrypt(form_data["confirm_password"].encode())
+            # adding username and mail to LocalStorage
+            self.set_user_data(
+                username=form_data["username"],
+                mail=form_data["mail"]
+            )
+            
             # Create new user
             with rx.session() as session:
                 new_user = RegisterUser(

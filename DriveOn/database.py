@@ -30,5 +30,4 @@ class RegisterUser(rx.Model, table=True):
     mail: str
     password: str
     confirm_password: str
-
     

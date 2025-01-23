@@ -377,6 +377,23 @@ export function Errorboundary_f8bd76b831afe3529fb2b044f599d87e () {
   )
 }
 
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
 const pulse = keyframes`
     0% {
         opacity: 0;
@@ -386,6 +403,22 @@ const pulse = keyframes`
     }
 `
 
+
+export function Link_ba14b7dcd4d4bff60c87e3770ac773e3 () {
+  
+
+
+
+
+
+  
+  return (
+    <RadixThemesLink css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} href={"#"} target={(false ? "_blank" : "")}>
+
+<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
+</RadixThemesLink>
+  )
+}
 
 export function Text_29baa859d222136567f3da982789b137 () {
   
@@ -401,22 +434,6 @@ export function Text_29baa859d222136567f3da982789b137 () {
 
 {("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
 </RadixThemesText>
-  )
-}
-
-export function Link_ba14b7dcd4d4bff60c87e3770ac773e3 () {
-  
-
-
-
-
-
-  
-  return (
-    <RadixThemesLink css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} href={"#"} target={(false ? "_blank" : "")}>
-
-<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
-</RadixThemesLink>
   )
 }
 
@@ -450,23 +467,6 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
   return (
     <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
-  )
-}
-
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
   )
 }
 
