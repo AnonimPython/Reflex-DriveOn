@@ -1,65 +1,52 @@
 import reflex as rx
-from cryptography.fernet import Fernet
+import sqlite3
 from sqlalchemy import select
-
 from ..database import RegisterUser
-# from dotenv import load_dotenv
-# load_dotenv()
-
 from ..state import UserData
 from ..ui.colors import *
 
-class LoginUser(UserData):
+class LoginUser (UserData):
+    """State for handling login."""
     form_data: dict = {}
-    
+    error: str = ""
+
     @rx.event
-    def handle_submit(self, form_data: dict):
+    async def handle_submit(self, form_data: dict):
         """Handle form submission"""
         try:
             # Get form data
-            mail = form_data["mail"]
-            username = form_data["username"]
-            input_password = form_data["password"].encode()
+            mail = form_data.get("mail", "")
+            username = form_data.get("username", "")
+            password = form_data.get("password", "")
             
-            key = "OC2tpXHRlrlkI749I9rtfKEvXeDZyrzS1PJ8mo4W0tM="
-            cipher_suite = Fernet(key)
-            
-            # Поиск пользователя
-            with rx.session() as session:
-                user = session.exec(
-                    select(RegisterUser).filter(
-                        (RegisterUser.username == username) | 
-                        (RegisterUser.mail == mail)
-                    )
-                ).first()
 
-            if user:
-                try:
-                    # Расшифровка и проверка
-                    decrypted_password = cipher_suite.decrypt(user.password)
-                    
-                    if input_password == decrypted_password:
-                        # Успешный вход
-                        self.set_user_data(
-                            username=user.username,
-                            mail=user.mail
-                        )
-                        return rx.redirect("/main")
-                    else:
-                        return rx.toast.error("Invalid password")
-                        
-                except Exception as e:
-                    print(f"Decryption error: {str(e)}")
-                    return rx.toast.error("Error verifying password")
+            # Connect to the database
+            connection = sqlite3.connect('driveon.db')  # замените на вашу базу данных
+            cursor = connection.cursor()
+
+            # Execute SQL query to find user
+            cursor.execute("SELECT * FROM RegisterUser  WHERE username = ? AND mail = ?", (username, mail))
+            user = cursor.fetchone()
+
+            if user and user[3] == password:  # предполагается, что пароль находится на 4-й позиции в результате
+                # Login successful - set user data and redirect
+                self.set_user_data(
+                    username=user[1],  # предполагается, что имя пользователя на 2-й позиции
+                    mail=user[2]       # предполагается, что почта на 3-й позиции
+                )
+                return rx.redirect("/main")
             else:
-                return rx.toast.error("User not found")
-                
+                return rx.toast.error("Invalid credentials")
+
         except Exception as e:
             print(f"Login error: {str(e)}")
             return rx.toast.error("Login error occurred")
+        finally:
+            # Закрыть соединение с базой данных
+            connection.close()
 
-        
 
+# Styles
 inputs_style: dict = {
     "width": "300px",
     "height": "50px",
@@ -75,7 +62,7 @@ inputs_style: dict = {
 def login() -> rx.Component:
     return rx.box(
         rx.mobile_only(
-            #* image
+            # Background image
             rx.box(
                 background="linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://hips.hearstapps.com/hmg-prod/images/2024-chevrolet-camaro-ss-collectors-edition-1-647e1933c6c20.jpg?crop=0.827xw:0.853xh;0.0946xw,0.129xh&resize=2048:*')",
                 background_size="cover",
@@ -83,55 +70,60 @@ def login() -> rx.Component:
                 height="35vh",
                 width="100%",
             ),
+            # Login form
             rx.box(
                 rx.box(
-                    rx.text("Login ",color="white",font_size="30px"),
-                    rx.text("To Take Your Car",color=YELLOW ,font_size="30px",weight="bold"),
+                    rx.text("Login ", color="white", font_size="30px"),
+                    rx.text("To Take Your Car", color=YELLOW, font_size="30px", weight="bold"),
                     align_items="center",
                     align_self="center",
                     text_align="center",
-            ),
+                ),
                 
                 rx.form.root(
-                   rx.center(
+                    rx.center(
                         rx.vstack(
-                            # mail
+                            # Email input
                             rx.input(
                                 rx.input.slot(
-                                    rx.icon(tag="mail",color="white"),
+                                    rx.icon(tag="mail", color="white"),
                                 ),
                                 name="mail",
-                                placeholder="Mail",
+                                placeholder="Email",
                                 radius="large",
+                                required=True,
                                 style=inputs_style
                             ),
-                            # ! TEST
+                            # Username input
                             rx.input(
                                 rx.input.slot(
-                                    rx.icon(tag="user",color="white"),
+                                    rx.icon(tag="user", color="white"),
                                 ),
                                 name="username",
-                                placeholder="usernameTEST",
+                                placeholder="Username",
                                 radius="large",
+                                required=True,
                                 style=inputs_style
                             ),
-                            # !!!!
+                            # Password input
                             rx.input(
                                 rx.input.slot(
                                     rx.icon(tag="lock", color="white"),
                                 ),
-                                name="password", 
-                                placeholder="Password",
+                                name="password",
+                                type="password",
+                                placeholder="Password", 
                                 radius="large",
+                                required=True,
                                 style=inputs_style
                             ),
-                            # ! make BD. For test I dont  use it
+                            # Submit button
                             rx.button(
                                 rx.text("Login"),
                                 type="submit",
                                 align_self="center",
                                 align_items="center",
-                                style={"width":"300px","height":"50px","font-size":"20px"},
+                                style={"width": "300px", "height": "50px", "font-size": "20px"},
                                 background_color=YELLOW,
                                 color="black",
                                 border_radius="30px",
@@ -139,10 +131,17 @@ def login() -> rx.Component:
                             gap="50px"
                         ),    
                     ),
-                    style={"margin-top":"5%"},
+                    style={"margin-top": "5%"},
                     on_submit=LoginUser.handle_submit,
-                ), 
+                ),
             ),
-            rx.center(rx.hstack(rx.text("Don't have account?",),rx.link("Register", href="/register",color=YELLOW),color="white"),style={"margin-top":"10%"}),
+            rx.center(
+                rx.hstack(
+                    rx.text("Don't have account?"),
+                    rx.link("Register", href="/register", color=YELLOW),
+                    color="white"
+                ),
+                style={"margin-top": "10%"}
+            ),
         ),
-    ),
+    )

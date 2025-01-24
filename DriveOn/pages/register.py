@@ -48,17 +48,17 @@ class Register(UserData):
                     ]
 
             
-            # connect Encrypt
-            key = "OC2tpXHRlrlkI749I9rtfKEvXeDZyrzS1PJ8mo4W0tM="
-            # key = Fernet.generate_key()
-            cipher_suite = Fernet(key)
+            # # connect Encrypt
+            # key = "OC2tpXHRlrlkI749I9rtfKEvXeDZyrzS1PJ8mo4W0tM="
+            # # key = Fernet.generate_key()
+            # cipher_suite = Fernet(key)
             
-            # Encrypt password
-            password = cipher_suite.encrypt(form_data["password"].encode())
-            confirm_password = cipher_suite.encrypt(form_data["confirm_password"].encode())
+            # # Encrypt password
+            # password = cipher_suite.encrypt(form_data["password"].encode())
+            # confirm_password = cipher_suite.encrypt(form_data["confirm_password"].encode())
             
-            decrypted_data = cipher_suite.decrypt(password)
-            print("Расшифрованные данные ПАРОЛЬ==============:", decrypted_data.decode())
+            # decrypted_data = cipher_suite.decrypt(password)
+            # print("Расшифрованные данные ПАРОЛЬ==============:", decrypted_data.decode())
             # adding username and mail to LocalStorage
             self.set_user_data(
                 username=form_data["username"],
@@ -70,8 +70,10 @@ class Register(UserData):
                 new_user = RegisterUser(
                     username=form_data["username"],
                     mail=form_data["mail"],
-                    password=password,
-                    confirm_password=confirm_password
+                    password=form_data["password"],
+                    # password=password,
+                    confirm_password=form_data["confirm_password"]
+                    # confirm_password=confirm_password
                 )
                 session.add(new_user)
                 session.commit()
