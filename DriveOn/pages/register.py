@@ -51,9 +51,13 @@ class Register(UserData):
             # connect Encrypt
             key = Fernet.generate_key()
             cipher_suite = Fernet(key)
+            
             # Encrypt password
             password = cipher_suite.encrypt(form_data["password"].encode())
             confirm_password = cipher_suite.encrypt(form_data["confirm_password"].encode())
+            
+            decrypted_data = cipher_suite.decrypt(password)
+            print("Расшифрованные данные ПАРОЛЬ==============:", decrypted_data.decode())
             # adding username and mail to LocalStorage
             self.set_user_data(
                 username=form_data["username"],

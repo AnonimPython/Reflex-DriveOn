@@ -1,8 +1,9 @@
 import reflex as rx
+from dotenv import load_dotenv
+load_dotenv()
 
 from ..state import UserData
 from ..ui.colors import *
-
 
 class LoginUser(UserData):
     form_data: dict = {}

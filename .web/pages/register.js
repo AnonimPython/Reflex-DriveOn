@@ -33,7 +33,31 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
-export function Errorboundary_4e259002acaeefce9424ceaac7bf2e34 () {
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Errorboundary_122318f401e8a0b791a1dcb94fe12e95 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -69,7 +93,7 @@ export function Errorboundary_4e259002acaeefce9424ceaac7bf2e34 () {
 </RadixThemesBox>
 <RadixThemesBox>
 
-<Root_a0a642b9260f4c45c34e85c4fb459e9f/>
+<Root_3675dc43092288be7f329e454dccfbee/>
 </RadixThemesBox>
 </RadixThemesBox>
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["margin-top"] : "10%" })}>
@@ -102,17 +126,7 @@ export function Errorboundary_4e259002acaeefce9424ceaac7bf2e34 () {
   )
 }
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
-export function Root_a0a642b9260f4c45c34e85c4fb459e9f () {
+export function Root_3675dc43092288be7f329e454dccfbee () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
   const ref_username = useRef(null); refs["ref_username"] = ref_username;
@@ -121,10 +135,10 @@ export function Root_a0a642b9260f4c45c34e85c4fb459e9f () {
   const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
 
   
-    const handleSubmit_43f7ab03df76fbe4934654124736b2ff = useCallback((ev) => {
+    const handleSubmit_7b5a85d8aa19aaf1c520add1f219a80d = useCallback((ev) => {
         const $form = ev.target
         ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["mail"] : getRefValue(refs["ref_mail"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["password"] : getRefValue(refs["ref_password"]), ["username"] : getRefValue(refs["ref_username"]) })};
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["username"] : getRefValue(refs["ref_username"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["password"] : getRefValue(refs["ref_password"]), ["mail"] : getRefValue(refs["ref_mail"]) })};
 
         (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
 
@@ -139,7 +153,7 @@ export function Root_a0a642b9260f4c45c34e85c4fb459e9f () {
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_43f7ab03df76fbe4934654124736b2ff}>
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_7b5a85d8aa19aaf1c520add1f219a80d}>
 
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
 
@@ -186,6 +200,16 @@ export function Root_a0a642b9260f4c45c34e85c4fb459e9f () {
   )
 }
 
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
 export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
   const { resolvedColorMode } = useContext(ColorModeContext)
@@ -219,30 +243,6 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
 export default function Component() {
     
 
@@ -250,6 +250,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_4e259002acaeefce9424ceaac7bf2e34/>
+    <Errorboundary_122318f401e8a0b791a1dcb94fe12e95/>
   )
 }
