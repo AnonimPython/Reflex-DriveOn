@@ -1,6 +1,10 @@
 import reflex as rx
-from dotenv import load_dotenv
-load_dotenv()
+from cryptography.fernet import Fernet
+from sqlalchemy import select
+
+from ..database import RegisterUser
+# from dotenv import load_dotenv
+# load_dotenv()
 
 from ..state import UserData
 from ..ui.colors import *
@@ -10,25 +14,51 @@ class LoginUser(UserData):
     
     @rx.event
     def handle_submit(self, form_data: dict):
-        """Handle form submission and save to localStorage"""
-        self.form_data = form_data
+        """Handle form submission"""
         try:
-          # Basic validation
-            if form_data["password"] != form_data["confirm_password"]:
-                pass
-        except:
-          print('Something went wrong')
-        finally:
-          print('The try except is finished')
-          
+            # Get form data
+            mail = form_data["mail"]
+            username = form_data["username"]
+            input_password = form_data["password"].encode()
+            
+            key = "OC2tpXHRlrlkI749I9rtfKEvXeDZyrzS1PJ8mo4W0tM="
+            cipher_suite = Fernet(key)
+            
+            # Поиск пользователя
+            with rx.session() as session:
+                user = session.exec(
+                    select(RegisterUser).filter(
+                        (RegisterUser.username == username) | 
+                        (RegisterUser.mail == mail)
+                    )
+                ).first()
+
+            if user:
+                try:
+                    # Расшифровка и проверка
+                    decrypted_password = cipher_suite.decrypt(user.password)
+                    
+                    if input_password == decrypted_password:
+                        # Успешный вход
+                        self.set_user_data(
+                            username=user.username,
+                            mail=user.mail
+                        )
+                        return rx.redirect("/main")
+                    else:
+                        return rx.toast.error("Invalid password")
+                        
+                except Exception as e:
+                    print(f"Decryption error: {str(e)}")
+                    return rx.toast.error("Error verifying password")
+            else:
+                return rx.toast.error("User not found")
+                
+        except Exception as e:
+            print(f"Login error: {str(e)}")
+            return rx.toast.error("Login error occurred")
+
         
-        # Get values from form
-        mail = form_data["mail"]
-        username = form_data["username"]
-        
-        # Save to localStorage through parent class method
-        self.set_user_data(username=username, mail=mail)
-    
 
 inputs_style: dict = {
     "width": "300px",

@@ -49,7 +49,8 @@ class Register(UserData):
 
             
             # connect Encrypt
-            key = Fernet.generate_key()
+            key = "OC2tpXHRlrlkI749I9rtfKEvXeDZyrzS1PJ8mo4W0tM="
+            # key = Fernet.generate_key()
             cipher_suite = Fernet(key)
             
             # Encrypt password

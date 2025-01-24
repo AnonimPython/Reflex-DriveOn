@@ -10,3 +10,4 @@ alembic.ini
 
 test.py
 /test_components/
+*.bin

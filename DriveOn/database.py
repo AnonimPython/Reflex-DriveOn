@@ -1,5 +1,6 @@
 import reflex as rx
 from typing import Optional, List
+from sqlalchemy import Column, String, LargeBinary
 from sqlmodel import Field
 from sqlalchemy import JSON, Column
 
@@ -28,6 +29,6 @@ class RegisterUser(rx.Model, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     username: str = Field(min_length=3, max_length=50)
     mail: str
-    password: str
-    confirm_password: str
+    password: bytes = Column(LargeBinary, nullable=False)
+    confirm_password: bytes = Column(LargeBinary, nullable=False)
     
