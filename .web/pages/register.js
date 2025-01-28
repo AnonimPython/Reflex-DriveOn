@@ -16,24 +16,7 @@ import NextHead from "next/head"
 
 
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
-export function Errorboundary_122318f401e8a0b791a1dcb94fe12e95 () {
+export function Errorboundary_354856c25243ab592ac77d513ffced66 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -69,7 +52,7 @@ export function Errorboundary_122318f401e8a0b791a1dcb94fe12e95 () {
 </RadixThemesBox>
 <RadixThemesBox>
 
-<Root_3675dc43092288be7f329e454dccfbee/>
+<Root_08f45349ad906133216e3e31654dec40/>
 </RadixThemesBox>
 </RadixThemesBox>
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["margin-top"] : "10%" })}>
@@ -99,6 +82,30 @@ export function Errorboundary_122318f401e8a0b791a1dcb94fe12e95 () {
 <meta content={"favicon.ico"} property={"og:image"}/>
 </NextHead>
 </ErrorBoundary>
+  )
+}
+
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
   )
 }
 
@@ -135,41 +142,7 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
-export function Root_3675dc43092288be7f329e454dccfbee () {
+export function Root_08f45349ad906133216e3e31654dec40 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
   const ref_username = useRef(null); refs["ref_username"] = ref_username;
@@ -178,10 +151,10 @@ export function Root_3675dc43092288be7f329e454dccfbee () {
   const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
 
   
-    const handleSubmit_7b5a85d8aa19aaf1c520add1f219a80d = useCallback((ev) => {
+    const handleSubmit_442eb65c904cd0d0f58d1be50966d1b0 = useCallback((ev) => {
         const $form = ev.target
         ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["username"] : getRefValue(refs["ref_username"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["password"] : getRefValue(refs["ref_password"]), ["mail"] : getRefValue(refs["ref_mail"]) })};
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["password"] : getRefValue(refs["ref_password"]), ["mail"] : getRefValue(refs["ref_mail"]), ["username"] : getRefValue(refs["ref_username"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]) })};
 
         (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
 
@@ -196,7 +169,7 @@ export function Root_3675dc43092288be7f329e454dccfbee () {
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_7b5a85d8aa19aaf1c520add1f219a80d}>
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_442eb65c904cd0d0f58d1be50966d1b0}>
 
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
 
@@ -243,6 +216,33 @@ export function Root_3675dc43092288be7f329e454dccfbee () {
   )
 }
 
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
 export default function Component() {
     
 
@@ -250,6 +250,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_122318f401e8a0b791a1dcb94fe12e95/>
+    <Errorboundary_354856c25243ab592ac77d513ffced66/>
   )
 }

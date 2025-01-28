@@ -32,3 +32,10 @@ class RegisterUser(rx.Model, table=True):
     password: str
     confirm_password: str
     
+#* SUPPORT MASSAGE
+class Support(rx.Model, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    mail: str
+    username: str
+    phone: str
+    message: str

@@ -1,11 +1,8 @@
 import reflex as rx
-from cryptography.fernet import Fernet
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.exc import IntegrityError
+# from cryptography.fernet import Fernet
 from sqlalchemy import select
 
 from ..database import RegisterUser
-
 from ..state import UserData
 from ..ui.colors import *
 

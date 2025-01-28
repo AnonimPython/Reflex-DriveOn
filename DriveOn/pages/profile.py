@@ -1,9 +1,19 @@
 import reflex as rx
 from rxconfig import config
+from sqlalchemy import select
 
+from ..database import Support
 from ..state import UserData
 from ..ui.colors import *
 from ..ui.navbar import navbar
+
+
+class SupportState(rx.State):
+    form_data: dict = {}
+    
+    @rx.event
+    def handle_submit(self, form_data: dict):
+        mail = form_data.get("mail", "")
 
 
 
@@ -31,7 +41,68 @@ def profile() -> rx.Component:
                 rx.box(
                     rx.text("Support Team will help with your problem!", font_size="15px",align_items="center",align_self="center",text_align="center"),
                     rx.flex(
-                        rx.box(),
+                        # form support
+                        rx.box(
+                            rx.alert_dialog.root(
+                            rx.alert_dialog.trigger(
+                                rx.button(
+                                    rx.icon("message-circle-question", size=26),
+                                    rx.text("Support", size="4"),
+                                    width="30px",
+                                    height="30px",
+                                ),
+                            ),
+                            rx.alert_dialog.content(
+                                rx.alert_dialog.title(
+                                    "Write a message",
+                                ),
+                                rx.alert_dialog.description(
+                                    "Need help? Write a message and we will contact you as soon as possible.",
+                                ),
+                                rx.form(
+                                    rx.flex(
+                                        rx.input(
+                                            value=UserData.username, 
+                                            placeholder="Your name",
+                                            name="name",
+                                            
+                                        ),
+                                        rx.input(
+                                            value=UserData.mail,
+                                            placeholder="Your mail",
+                                            name="mail",
+                                        ),
+                                        rx.input(
+                                            placeholder="Phone Number",
+                                            name="phone",
+                                        ),
+                                        rx.flex(
+                                            rx.alert_dialog.cancel(
+                                                rx.button(
+                                                    "Cancel",
+                                                    variant="soft",
+                                                    color_scheme="gray",
+                                                ),
+                                            ),
+                                            rx.alert_dialog.action(
+                                                rx.button(
+                                                    "Submit", type="submit"
+                                                ),
+                                            ),
+                                            spacing="3",
+                                            justify="end",
+                                        ),
+                                        direction="column",
+                                        spacing="4",
+                                    ),
+                                    on_submit=SupportState.handle_submit,
+                                    reset_on_submit=True,
+                                ),
+                                max_width="450px",
+                            ),
+                        # rx.alert_dialog.root
+                        )
+                        ),
                     ),
                     margin_top="30px",
                 ),
