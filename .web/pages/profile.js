@@ -9,98 +9,13 @@ import { jsx, keyframes } from "@emotion/react"
 import { HouseIcon as LucideHouseIcon, SearchIcon as LucideSearchIcon, UserIcon as LucideUserIcon, WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
 import { toast, Toaster } from "sonner"
 import env from "$/env.json"
-import { Box as RadixThemesBox, Flex as RadixThemesFlex, Link as RadixThemesLink, Text as RadixThemesText } from "@radix-ui/themes"
+import { Box as RadixThemesBox, Flex as RadixThemesFlex, Heading as RadixThemesHeading, Link as RadixThemesLink, Text as RadixThemesText } from "@radix-ui/themes"
 import NextLink from "next/link"
 import NextHead from "next/head"
 
 
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
-export function Text_33eb061b86ed2018127af7fd97813f22 () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesText as={"p"}>
-
-{reflex___state____state__drive_on___state____user_data.mail}
-</RadixThemesText>
-  )
-}
-
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
-export function Text_50a9dea953a49c05ed0a9f11c24746d5 () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesText as={"p"}>
-
-{reflex___state____state__drive_on___state____user_data.username}
-</RadixThemesText>
-  )
-}
-
-export function Errorboundary_1ad940c1773340e012a5556af3b4e563 () {
+export function Errorboundary_9e6ac76653b4253feb17f39ba112515a () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -122,9 +37,30 @@ export function Errorboundary_1ad940c1773340e012a5556af3b4e563 () {
 
 <RadixThemesBox css={({ ["color"] : "white", ["@media screen and (min-width: 0)"] : ({ ["display"] : "block" }), ["@media screen and (min-width: 30em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 48em)"] : ({ ["display"] : "none" }), ["@media screen and (min-width: 62em)"] : ({ ["display"] : "none" }) })}>
 
-<RadixThemesBox/>
-<Text_50a9dea953a49c05ed0a9f11c24746d5/>
+<RadixThemesBox>
+
+<RadixThemesBox css={({ ["background"] : "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://media.architecturaldigest.com/photos/5ced629704c41e1a9b9a8bcf/16:9/w_2560%2Cc_limit/Bugatti-LVN-7%2520%255BBugatti%255D.jpg')", ["backgroundSize"] : "cover", ["backgroundPosition"] : "center", ["height"] : "35vh", ["width"] : "100%" })}/>
+<RadixThemesBox>
+
+<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["flexDirection"] : "column" })}>
+
+<Heading_195b1065b03a0153b4b5de5082bea1fb/>
 <Text_33eb061b86ed2018127af7fd97813f22/>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox css={({ ["marginTop"] : "30px" })}>
+
+<RadixThemesText as={"p"} css={({ ["fontSize"] : "15px", ["alignItems"] : "center", ["alignSelf"] : "center", ["textAlign"] : "center" })}>
+
+{"Support Team will help with your problem!"}
+</RadixThemesText>
+<RadixThemesFlex>
+
+<RadixThemesBox/>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox/>
+</RadixThemesBox>
 <Fragment>
 
 <RadixThemesBox css={({ ["position"] : "fixed", ["bottom"] : "30px", ["left"] : "50%", ["transform"] : "translate(-50%, 0)", ["width"] : "50%", ["height"] : "70px", ["borderRadius"] : "50px", ["alignItems"] : "center", ["justifyContent"] : "center", ["alignSelf"] : "center", ["zIndex"] : "99", ["backgroundColor"] : "#232323" })}>
@@ -169,6 +105,40 @@ export function Errorboundary_1ad940c1773340e012a5556af3b4e563 () {
   )
 }
 
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
+export function Text_33eb061b86ed2018127af7fd97813f22 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"}>
+
+{reflex___state____state__drive_on___state____user_data.mail}
+</RadixThemesText>
+  )
+}
+
 export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
   const { resolvedColorMode } = useContext(ColorModeContext)
@@ -202,6 +172,57 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
+export function Heading_195b1065b03a0153b4b5de5082bea1fb () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesHeading>
+
+{reflex___state____state__drive_on___state____user_data.username}
+</RadixThemesHeading>
+  )
+}
+
 export default function Component() {
     
 
@@ -209,6 +230,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_1ad940c1773340e012a5556af3b4e563/>
+    <Errorboundary_9e6ac76653b4253feb17f39ba112515a/>
   )
 }

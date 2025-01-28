@@ -1,9 +1,11 @@
 import reflex as rx
 import sqlite3
-from sqlalchemy import select
-from ..database import RegisterUser
+# from sqlalchemy import select
+# from ..database import RegisterUser
 from ..state import UserData
 from ..ui.colors import *
+
+from .register import inputs_style
 
 class LoginUser (UserData):
     """State for handling login."""
@@ -21,18 +23,18 @@ class LoginUser (UserData):
             
 
             # Connect to the database
-            connection = sqlite3.connect('driveon.db')  # замените на вашу базу данных
+            connection = sqlite3.connect('driveon.db') 
             cursor = connection.cursor()
 
             # Execute SQL query to find user
             cursor.execute("SELECT * FROM RegisterUser  WHERE username = ? AND mail = ?", (username, mail))
             user = cursor.fetchone()
 
-            if user and user[3] == password:  # предполагается, что пароль находится на 4-й позиции в результате
+            if user and user[3] == password:
                 # Login successful - set user data and redirect
                 self.set_user_data(
-                    username=user[1],  # предполагается, что имя пользователя на 2-й позиции
-                    mail=user[2]       # предполагается, что почта на 3-й позиции
+                    username=user[1], 
+                    mail=user[2]
                 )
                 return rx.redirect("/main")
             else:
@@ -42,22 +44,9 @@ class LoginUser (UserData):
             print(f"Login error: {str(e)}")
             return rx.toast.error("Login error occurred")
         finally:
-            # Закрыть соединение с базой данных
+            # Close the database connection
             connection.close()
 
-
-# Styles
-inputs_style: dict = {
-    "width": "300px",
-    "height": "50px",
-    "--text-field-focus-color": YELLOW,
-    "background": "#414141",
-    "color": "white",
-    "& input::placeholder": {
-        "color": "white"
-    },
-    "font-size": "20px",
-}
 
 def login() -> rx.Component:
     return rx.box(
