@@ -1,6 +1,8 @@
 import reflex as rx
 
 from ..state import UserData
+from sqlmodel import select,or_
+from ..database import Cars
 from ..ui.navbar import navbar
 from ..ui.filter_buttons import filter_buttons
 from ..ui.car_card import car_card
@@ -26,8 +28,41 @@ class FilterButtonsState(rx.State):
             print(f"[WARNING] Error getting tours from BD (get_regular_tours): {e}")
     '''
 
+# class CarsDBState(rx.State):
+#     cars: list[Cars] = []
+    
+#     # active_button: str = "tours"
+
+#     #* All cars in DB
+#     @rx.event
+#     async def get_all_cars(self) -> list[Cars]:
+#         # self.active_button = "tours"
+#         try:
+#             with rx.session() as session:
+#                 query = select(Cars).order_by(Cars.id.desc())
+#                 self.cars = session.exec(query).all()
+#                 print(self.cars, "==================================")
+#         except Exception as e:
+#             print(f"[WARNING] Error getting tours from BD (get_regular_tours): {e}")
+            
+class CarsDBState(rx.State):
+    cars: list[Cars] = []
+
+    @rx.event
+    async def get_all_cars(self):
+        with rx.session() as session:
+            query = select(Cars).order_by(Cars.id.desc())
+            self.cars = session.exec(query).all()
 
 
+def show_car(car: Cars) -> rx.Component:
+    """Render a single item."""
+    return car_card(
+        img_url=car.image,
+        company_name=car.company,
+        car_model=car.car_model,
+        rent_price=car.price
+    )
 
 def main() -> rx.Component:
     return rx.box(
@@ -144,7 +179,14 @@ def main() -> rx.Component:
                 ),
                 width="100%",
                 margin_top="30px",
-            ), 
+            ),
+            rx.box(
+                rx.foreach(CarsDBState.cars, show_car),
+                margin_top="30px",
+                on_mount=CarsDBState.get_all_cars
+            ),
+            
+            
             rx.box(
                 navbar(),
             ),

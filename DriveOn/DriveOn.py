@@ -9,7 +9,7 @@ from .pages.login import login
 from .pages.register import register
 from .pages.profile import profile
 from .pages.test import test
-# from .pages.car_detail import car_detail
+from .pages.car_detail import car_detail
 
 
 from .pages.error import error_404
@@ -41,9 +41,9 @@ def test_page() -> rx.Component:
 def profile_page() -> rx.Component:
     return profile()
 
-# @rx.page(route="/car/[id]")
-# def car_detail_page():
-#     return car_detail()
+@rx.page(route="/car/[id]")
+def car_detail_page():
+    return car_detail()
 
 @rx.page(route="/test", title="test")
 def test_page() -> rx.Component:
