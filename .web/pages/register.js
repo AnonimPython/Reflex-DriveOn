@@ -16,113 +16,6 @@ import NextHead from "next/head"
 
 
 
-export function Root_2f98e6eef36b2a3b2a88c611465098eb () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const ref_username = useRef(null); refs["ref_username"] = ref_username;
-  const ref_mail = useRef(null); refs["ref_mail"] = ref_mail;
-  const ref_password = useRef(null); refs["ref_password"] = ref_password;
-  const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
-
-  
-    const handleSubmit_7c20c0d1cb6d3d922693e8521ed508dd = useCallback((ev) => {
-        const $form = ev.target
-        ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["password"] : getRefValue(refs["ref_password"]), ["username"] : getRefValue(refs["ref_username"]), ["mail"] : getRefValue(refs["ref_mail"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]) })};
-
-        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
-
-        if (false) {
-            $form.reset()
-        }
-    })
-    
-
-
-
-
-  
-  return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_7c20c0d1cb6d3d922693e8521ed508dd}>
-
-<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["gap"] : "20px" })} direction={"column"} gap={"3"}>
-
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"username"} maxLength={12} name={"username"} placeholder={"Username"} radius={"large"} ref={ref_username}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideUserIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"mail"} name={"mail"} placeholder={"Mail"} radius={"large"} ref={ref_mail}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideMailIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"password"} name={"password"} placeholder={"Password"} radius={"large"} ref={ref_password}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideLockIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px", ["border"] : "red" })} id={"confirm_password"} name={"confirm_password"} placeholder={"Confirm Password"} radius={"large"} ref={ref_confirm_password}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideShieldCheckIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesButton css={({ ["width"] : "300px", ["height"] : "50px", ["font-size"] : "20px", ["alignSelf"] : "center", ["alignItems"] : "center", ["backgroundColor"] : "#e8ea00", ["color"] : "black" })} type={"submit"}>
-
-<RadixThemesText as={"p"}>
-
-{"Register"}
-</RadixThemesText>
-</RadixThemesButton>
-</RadixThemesFlex>
-</RadixThemesFlex>
-</RadixFormRoot>
-  )
-}
-
-export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
-  
-  const { resolvedColorMode } = useContext(ColorModeContext)
-
-  refs['__toast'] = toast
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
-  const [userDismissed, setUserDismissed] = useState(false);
-  (useEffect(
-() => {
-    if ((connectErrors.length >= 2)) {
-        if (!userDismissed) {
-            toast.error(
-                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
-                {...toast_props, onDismiss: () => setUserDismissed(true)},
-            )
-        }
-    } else {
-        toast.dismiss("websocket-error");
-        setUserDismissed(false);  // after reconnection reset dismissed state
-    }
-}
-, [connectErrors]))
-
-
-
-
-  
-  return (
-    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
-  )
-}
-
 export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
@@ -174,7 +67,40 @@ const pulse = keyframes`
 `
 
 
-export function Errorboundary_d9d87732c24107b9566c80d7f07926e8 () {
+export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
+  
+  const { resolvedColorMode } = useContext(ColorModeContext)
+
+  refs['__toast'] = toast
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
+  const [userDismissed, setUserDismissed] = useState(false);
+  (useEffect(
+() => {
+    if ((connectErrors.length >= 2)) {
+        if (!userDismissed) {
+            toast.error(
+                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
+                {...toast_props, onDismiss: () => setUserDismissed(true)},
+            )
+        }
+    } else {
+        toast.dismiss("websocket-error");
+        setUserDismissed(false);  // after reconnection reset dismissed state
+    }
+}
+, [connectErrors]))
+
+
+
+
+  
+  return (
+    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
+  )
+}
+
+export function Errorboundary_8526dae5b1979498541d882ef8875b0d () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -210,7 +136,7 @@ export function Errorboundary_d9d87732c24107b9566c80d7f07926e8 () {
 </RadixThemesBox>
 <RadixThemesBox>
 
-<Root_2f98e6eef36b2a3b2a88c611465098eb/>
+<Root_1cda9dede3f0865fed09a7ec2eea7865/>
 </RadixThemesBox>
 </RadixThemesBox>
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["margin-top"] : "10%" })}>
@@ -243,6 +169,80 @@ export function Errorboundary_d9d87732c24107b9566c80d7f07926e8 () {
   )
 }
 
+export function Root_1cda9dede3f0865fed09a7ec2eea7865 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const ref_username = useRef(null); refs["ref_username"] = ref_username;
+  const ref_mail = useRef(null); refs["ref_mail"] = ref_mail;
+  const ref_password = useRef(null); refs["ref_password"] = ref_password;
+  const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
+
+  
+    const handleSubmit_484e01e418c2ddd79fafd03de08f74a3 = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["password"] : getRefValue(refs["ref_password"]), ["mail"] : getRefValue(refs["ref_mail"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["username"] : getRefValue(refs["ref_username"]) })};
+
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+
+        if (false) {
+            $form.reset()
+        }
+    })
+    
+
+
+
+
+  
+  return (
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_484e01e418c2ddd79fafd03de08f74a3}>
+
+<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["gap"] : "20px" })} direction={"column"} gap={"3"}>
+
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"username"} maxLength={12} name={"username"} placeholder={"Username"} radius={"large"} ref={ref_username}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideUserIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"mail"} name={"mail"} placeholder={"Mail"} radius={"large"} ref={ref_mail}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideMailIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"password"} name={"password"} placeholder={"Password"} radius={"large"} ref={ref_password}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideLockIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px", ["border"] : "red" })} id={"confirm_password"} name={"confirm_password"} placeholder={"Confirm Password"} radius={"large"} ref={ref_confirm_password}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideShieldCheckIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesButton css={({ ["width"] : "300px", ["height"] : "50px", ["font-size"] : "20px", ["alignSelf"] : "center", ["alignItems"] : "center", ["backgroundColor"] : "#e8ea00", ["color"] : "black" })} type={"submit"}>
+
+<RadixThemesText as={"p"}>
+
+{"Register"}
+</RadixThemesText>
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixThemesFlex>
+</RadixFormRoot>
+  )
+}
+
 export default function Component() {
     
 
@@ -250,6 +250,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_d9d87732c24107b9566c80d7f07926e8/>
+    <Errorboundary_8526dae5b1979498541d882ef8875b0d/>
   )
 }

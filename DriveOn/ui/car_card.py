@@ -8,6 +8,7 @@ def car_card(
         company_name: str,
         car_model: str,
         rent_price: str,
+        car_id: int,
     ):
     return rx.box(
             rx.image(
@@ -29,7 +30,6 @@ def car_card(
                     rx.text(company_name,size="3",margin_bottom="30px"),
                     rx.text(car_model,size="8",weight="bold"),
                 ),
-                
                 color="white",
                 position="absolute",
                 top="24%",
@@ -39,7 +39,6 @@ def car_card(
             ),
             rx.box(
                 rx.hstack(
-                    # text
                     rx.box(
                         rx.vstack(
                             rx.text(
@@ -60,16 +59,14 @@ def car_card(
                 position="absolute",
                 top="70%",
                 left="9%",
-                # transform="translate(-50%, -50%)",
                 z_index="2",
             ),
-            # button
             rx.box(
                 rx.box(
                     rx.link(
                         rx.icon(tag="arrow-right",color="black"),
                         color=LIGHT_GRAY,
-                        # href=f"/car/{car.id}",
+                        href=f"/car/{car_id}",
                         is_external=False
                     ),
                     padding="15px",
@@ -80,12 +77,11 @@ def car_card(
                     position="absolute",
                     top="74%",
                     left="78%",
-                    # transform="translate(-50%, -50%)",
                     z_index="2",
                 ),
             ),
-                    position="relative",
-                    width="100%",
-                    height="322px",
-                    overflow="hidden",
-                ),
+            position="relative",
+            width="100%",
+            height="322px",
+            overflow="hidden"
+    )

@@ -47,22 +47,17 @@ class FilterButtonsState(rx.State):
             
 class CarsDBState(rx.State):
     cars: list[Cars] = []
-
+    is_loading: bool = False
+    
     @rx.event
-    async def get_all_cars(self):
-        with rx.session() as session:
-            query = select(Cars).order_by(Cars.id.desc())
-            self.cars = session.exec(query).all()
-
-
-def show_car(car: Cars) -> rx.Component:
-    """Render a single item."""
-    return car_card(
-        img_url=car.image,
-        company_name=car.company,
-        car_model=car.car_model,
-        rent_price=car.price
-    )
+    async def get_cars(self) -> list[Cars]:
+        try:
+            with rx.session() as session:
+                query = select(Cars).order_by(Cars.id.desc())
+                self.cars = session.exec(query).all()
+        except Exception as e:
+            print(f"[WARNING] Error getting cars from DB: {e}")
+            
 
 def main() -> rx.Component:
     return rx.box(
@@ -159,33 +154,48 @@ def main() -> rx.Component:
             ),
             # cards of cars
             rx.box(
-                car_card(
-                    img_url="https://images.unsplash.com/photo-1530906358829-e84b2769270f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2slMjBsYW1ib3JnaGluaXxlbnwwfHwwfHx8MA%3D%3D",
-                    company_name="Lamborghini",
-                    car_model="Huracan",
-                    rent_price="2000",
-                ),
-                car_card(
-                    img_url="https://wallpapers.com/images/hd/red-smoke-black-lamborghini-9akg35f0l55h1wh9.jpg",
-                    company_name="Lamborghini",
-                    car_model="Huracan",
-                    rent_price="2500",
-                ),
-                car_card(
-                    img_url="https://gateauto.ru/upload/resize_cache/iblock/752/678_423_2/ixbfkr745ee0ykz31q9yv3zw6l6lj27g.webp",
-                    company_name="Ferrari",
-                    car_model="Encho",
-                    rent_price="3300",
-                ),
+                # car_card(
+                #     img_url="https://images.unsplash.com/photo-1530906358829-e84b2769270f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2slMjBsYW1ib3JnaGluaXxlbnwwfHwwfHx8MA%3D%3D",
+                #     company_name="Lamborghini",
+                #     car_model="Huracan",
+                #     rent_price="2000",
+                # ),
+                # car_card(
+                #     img_url="https://wallpapers.com/images/hd/red-smoke-black-lamborghini-9akg35f0l55h1wh9.jpg",
+                #     company_name="Lamborghini",
+                #     car_model="Huracan",
+                #     rent_price="2500",
+                # ),
+                # car_card(
+                #     img_url="https://gateauto.ru/upload/resize_cache/iblock/752/678_423_2/ixbfkr745ee0ykz31q9yv3zw6l6lj27g.webp",
+                #     company_name="Ferrari",
+                #     car_model="Encho",
+                #     rent_price="3300",
+                # ),
                 width="100%",
                 margin_top="30px",
             ),
-            rx.box(
-                rx.foreach(CarsDBState.cars, show_car),
-                margin_top="30px",
-                on_mount=CarsDBState.get_all_cars
-            ),
             
+            rx.box(
+        rx.cond(
+            CarsDBState.is_loading,
+            rx.center(rx.spinner()),
+            rx.box(
+                rx.foreach(
+                    CarsDBState.cars,
+                    lambda car: car_card(
+                        img_url=car.image,
+                        company_name=car.company,
+                        car_model=car.car_model,
+                        rent_price=car.price,
+                        car_id=car.id,
+                    )
+                ),
+                margin_top="30px",
+            )
+        ),
+        on_mount=CarsDBState.get_cars
+    ),
             
             rx.box(
                 navbar(),
