@@ -40,23 +40,6 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
 const pulse = keyframes`
     0% {
         opacity: 0;
@@ -100,7 +83,24 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Errorboundary_8526dae5b1979498541d882ef8875b0d () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
+export function Errorboundary_01933f6d3b6a40a551077f2e936d732f () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -136,7 +136,7 @@ export function Errorboundary_8526dae5b1979498541d882ef8875b0d () {
 </RadixThemesBox>
 <RadixThemesBox>
 
-<Root_1cda9dede3f0865fed09a7ec2eea7865/>
+<Root_b65d74f036617cb8861aa0dbdec72c6e/>
 </RadixThemesBox>
 </RadixThemesBox>
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["margin-top"] : "10%" })}>
@@ -169,7 +169,7 @@ export function Errorboundary_8526dae5b1979498541d882ef8875b0d () {
   )
 }
 
-export function Root_1cda9dede3f0865fed09a7ec2eea7865 () {
+export function Root_b65d74f036617cb8861aa0dbdec72c6e () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
   const ref_username = useRef(null); refs["ref_username"] = ref_username;
@@ -178,10 +178,10 @@ export function Root_1cda9dede3f0865fed09a7ec2eea7865 () {
   const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
 
   
-    const handleSubmit_484e01e418c2ddd79fafd03de08f74a3 = useCallback((ev) => {
+    const handleSubmit_583b36c429cd2a2de3630ad3f990883f = useCallback((ev) => {
         const $form = ev.target
         ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["password"] : getRefValue(refs["ref_password"]), ["mail"] : getRefValue(refs["ref_mail"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["username"] : getRefValue(refs["ref_username"]) })};
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["password"] : getRefValue(refs["ref_password"]), ["username"] : getRefValue(refs["ref_username"]), ["mail"] : getRefValue(refs["ref_mail"]) })};
 
         (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
 
@@ -196,7 +196,7 @@ export function Root_1cda9dede3f0865fed09a7ec2eea7865 () {
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_484e01e418c2ddd79fafd03de08f74a3}>
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_583b36c429cd2a2de3630ad3f990883f}>
 
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
 
@@ -250,6 +250,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_8526dae5b1979498541d882ef8875b0d/>
+    <Errorboundary_01933f6d3b6a40a551077f2e936d732f/>
   )
 }

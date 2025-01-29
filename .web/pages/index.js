@@ -39,23 +39,6 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
 const pulse = keyframes`
     0% {
         opacity: 0;
@@ -99,8 +82,9 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Link_8509dde6e98b3308c33736df58bb9bfa () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
 
 
 
@@ -108,13 +92,10 @@ export function Link_8509dde6e98b3308c33736df58bb9bfa () {
 
   
   return (
-    <RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
 
-<NextLink href={"/login"} passHref={true}>
-
-<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
-</NextLink>
-</RadixThemesLink>
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
   )
 }
 
@@ -187,6 +168,25 @@ export function Errorboundary_7ce30a64d5e6b2cec6c1283987377401 () {
 <meta content={"favicon.ico"} property={"og:image"}/>
 </NextHead>
 </ErrorBoundary>
+  )
+}
+
+export function Link_8509dde6e98b3308c33736df58bb9bfa () {
+  
+
+
+
+
+
+  
+  return (
+    <RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
+
+<NextLink href={"/login"} passHref={true}>
+
+<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
+</NextLink>
+</RadixThemesLink>
   )
 }
 

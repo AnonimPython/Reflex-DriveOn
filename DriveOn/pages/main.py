@@ -47,10 +47,9 @@ class FilterButtonsState(rx.State):
             
 class CarsDBState(rx.State):
     cars: list[Cars] = []
-    is_loading: bool = False
     
     @rx.event
-    async def get_cars(self) -> list[Cars]:
+    async def get_cars(self):
         try:
             with rx.session() as session:
                 query = select(Cars).order_by(Cars.id.desc())
@@ -177,10 +176,6 @@ def main() -> rx.Component:
             ),
             
             rx.box(
-        rx.cond(
-            CarsDBState.is_loading,
-            rx.center(rx.spinner()),
-            rx.box(
                 rx.foreach(
                     CarsDBState.cars,
                     lambda car: car_card(
@@ -192,10 +187,8 @@ def main() -> rx.Component:
                     )
                 ),
                 margin_top="30px",
-            )
-        ),
-        on_mount=CarsDBState.get_cars
-    ),
+                on_mount=CarsDBState.get_cars
+            ),
             
             rx.box(
                 navbar(),

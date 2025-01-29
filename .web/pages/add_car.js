@@ -39,23 +39,6 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
 const pulse = keyframes`
     0% {
         opacity: 0;
@@ -99,65 +82,24 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Root_6e196f7bb27cade405844aeb726b23d5 () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const ref_company = useRef(null); refs["ref_company"] = ref_company;
-  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
-  const ref_price = useRef(null); refs["ref_price"] = ref_price;
-  const ref_image = useRef(null); refs["ref_image"] = ref_image;
-  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
-  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
-  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
-  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
-  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
-  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
-  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
 
-  
-    const handleSubmit_de8a466b118e7ce49e30aa1554cde5c2 = useCallback((ev) => {
-        const $form = ev.target
-        ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["car_model"] : getRefValue(refs["ref_car_model"]), ["price"] : getRefValue(refs["ref_price"]), ["image"] : getRefValue(refs["ref_image"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["doors"] : getRefValue(refs["ref_doors"]), ["car_width"] : getRefValue(refs["ref_car_width"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["seats"] : getRefValue(refs["ref_seats"]), ["car_height"] : getRefValue(refs["ref_car_height"]), ["company"] : getRefValue(refs["ref_company"]), ["car_length"] : getRefValue(refs["ref_car_length"]) })};
-
-        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
-
-        if (false) {
-            $form.reset()
-        }
-    })
-    
 
 
 
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_de8a466b118e7ce49e30aa1554cde5c2}>
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
 
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
-
-<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
-<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
-<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
-<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
-<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
-<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
-<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
-<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
-<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
-<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
-<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
-<RadixThemesButton type={"submit"}>
-
-{"Add Car"}
-</RadixThemesButton>
-</RadixThemesFlex>
-</RadixFormRoot>
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
   )
 }
 
-export function Errorboundary_91e15f2a506e3efbbc682f07bdb081e8 () {
+export function Errorboundary_ac204489da1b3580eb91b527ca84fc68 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -181,7 +123,7 @@ export function Errorboundary_91e15f2a506e3efbbc682f07bdb081e8 () {
 
 {"Add Tour"}
 </RadixThemesHeading>
-<Root_6e196f7bb27cade405844aeb726b23d5/>
+<Root_ac34d44fb844f14986947bec6265888a/>
 </RadixThemesContainer>
 <NextHead>
 
@@ -195,6 +137,64 @@ export function Errorboundary_91e15f2a506e3efbbc682f07bdb081e8 () {
   )
 }
 
+export function Root_ac34d44fb844f14986947bec6265888a () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const ref_company = useRef(null); refs["ref_company"] = ref_company;
+  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
+  const ref_price = useRef(null); refs["ref_price"] = ref_price;
+  const ref_image = useRef(null); refs["ref_image"] = ref_image;
+  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
+  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
+  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
+  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
+  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
+  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
+  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
+
+  
+    const handleSubmit_f135df90c464a674b19906860aeaa139 = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["car_height"] : getRefValue(refs["ref_car_height"]), ["company"] : getRefValue(refs["ref_company"]), ["price"] : getRefValue(refs["ref_price"]), ["car_width"] : getRefValue(refs["ref_car_width"]), ["seats"] : getRefValue(refs["ref_seats"]), ["image"] : getRefValue(refs["ref_image"]), ["doors"] : getRefValue(refs["ref_doors"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["car_length"] : getRefValue(refs["ref_car_length"]), ["car_model"] : getRefValue(refs["ref_car_model"]) })};
+
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+
+        if (false) {
+            $form.reset()
+        }
+    })
+    
+
+
+
+
+  
+  return (
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_f135df90c464a674b19906860aeaa139}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
+
+<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
+<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
+<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
+<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
+<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
+<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
+<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
+<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
+<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
+<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
+<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
+<RadixThemesButton type={"submit"}>
+
+{"Add Car"}
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixFormRoot>
+  )
+}
+
 export default function Component() {
     
 
@@ -202,6 +202,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_91e15f2a506e3efbbc682f07bdb081e8/>
+    <Errorboundary_ac204489da1b3580eb91b527ca84fc68/>
   )
 }
