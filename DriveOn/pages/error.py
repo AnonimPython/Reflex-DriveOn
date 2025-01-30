@@ -29,7 +29,7 @@ def error_404() -> rx.Component:
         ),
         rx.button(
             "Go back",
-            on_click=rx.redirect("/tours"),
+            on_click=rx.redirect("/main"),
             color_scheme="blue",
             size="3",
             margin_top="2em",

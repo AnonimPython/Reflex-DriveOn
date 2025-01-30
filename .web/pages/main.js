@@ -15,7 +15,7 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -25,29 +25,12 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
 
   
   return (
-    <Fragment>
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
 
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
   )
 }
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
 
 export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
@@ -82,24 +65,7 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
-export function Box_89cffff635042218227b3d9fbba72321 () {
+export function Box_6626e582bf259a23b74387cd6c5ea2b0 () {
   
   
                 useEffect(() => {
@@ -119,8 +85,8 @@ export function Box_89cffff635042218227b3d9fbba72321 () {
   return (
     <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
 
-<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_2f92bda04906c78b) => (
-  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_2f92bda04906c78b}>
+<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_f67a6bffae233ebb) => (
+  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_f67a6bffae233ebb}>
 
 <img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
 <RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
@@ -177,7 +143,58 @@ export function Box_89cffff635042218227b3d9fbba72321 () {
   )
 }
 
-export function Errorboundary_e7da2f3a106ef6d91f94d497e9c78c0c () {
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Text_29baa859d222136567f3da982789b137 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+
+{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
+</RadixThemesText>
+  )
+}
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
+export function Errorboundary_592fc138331110a32c974c1362ac2183 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -343,7 +360,7 @@ export function Errorboundary_e7da2f3a106ef6d91f94d497e9c78c0c () {
 </RadixThemesBox>
 </RadixThemesContainer>
 <RadixThemesBox css={({ ["width"] : "100%", ["marginTop"] : "30px" })}/>
-<Box_89cffff635042218227b3d9fbba72321/>
+<Box_6626e582bf259a23b74387cd6c5ea2b0/>
 <RadixThemesBox>
 
 <Fragment>
@@ -391,23 +408,6 @@ export function Errorboundary_e7da2f3a106ef6d91f94d497e9c78c0c () {
   )
 }
 
-export function Text_29baa859d222136567f3da982789b137 () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
-
-{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
-</RadixThemesText>
-  )
-}
-
 export default function Component() {
     
 
@@ -415,6 +415,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_e7da2f3a106ef6d91f94d497e9c78c0c/>
+    <Errorboundary_592fc138331110a32c974c1362ac2183/>
   )
 }

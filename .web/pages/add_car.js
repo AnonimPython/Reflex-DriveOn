@@ -15,7 +15,7 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -25,29 +25,12 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
 
   
   return (
-    <Fragment>
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
 
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
   )
 }
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
 
 export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
@@ -82,24 +65,7 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
-export function Errorboundary_ac204489da1b3580eb91b527ca84fc68 () {
+export function Errorboundary_f94a93a9b8ae459530ead5ebffa95bd6 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -123,7 +89,7 @@ export function Errorboundary_ac204489da1b3580eb91b527ca84fc68 () {
 
 {"Add Tour"}
 </RadixThemesHeading>
-<Root_ac34d44fb844f14986947bec6265888a/>
+<Root_bb57dc3a0a09fdeb4451dd7a646dc32a/>
 </RadixThemesContainer>
 <NextHead>
 
@@ -137,7 +103,7 @@ export function Errorboundary_ac204489da1b3580eb91b527ca84fc68 () {
   )
 }
 
-export function Root_ac34d44fb844f14986947bec6265888a () {
+export function Root_bb57dc3a0a09fdeb4451dd7a646dc32a () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
   const ref_company = useRef(null); refs["ref_company"] = ref_company;
@@ -153,10 +119,10 @@ export function Root_ac34d44fb844f14986947bec6265888a () {
   const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
 
   
-    const handleSubmit_f135df90c464a674b19906860aeaa139 = useCallback((ev) => {
+    const handleSubmit_7efc6717bf9b03e62f844079fd6005b1 = useCallback((ev) => {
         const $form = ev.target
         ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["car_height"] : getRefValue(refs["ref_car_height"]), ["company"] : getRefValue(refs["ref_company"]), ["price"] : getRefValue(refs["ref_price"]), ["car_width"] : getRefValue(refs["ref_car_width"]), ["seats"] : getRefValue(refs["ref_seats"]), ["image"] : getRefValue(refs["ref_image"]), ["doors"] : getRefValue(refs["ref_doors"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["car_length"] : getRefValue(refs["ref_car_length"]), ["car_model"] : getRefValue(refs["ref_car_model"]) })};
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["car_length"] : getRefValue(refs["ref_car_length"]), ["car_height"] : getRefValue(refs["ref_car_height"]), ["doors"] : getRefValue(refs["ref_doors"]), ["image"] : getRefValue(refs["ref_image"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["seats"] : getRefValue(refs["ref_seats"]), ["car_model"] : getRefValue(refs["ref_car_model"]), ["price"] : getRefValue(refs["ref_price"]), ["car_width"] : getRefValue(refs["ref_car_width"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["company"] : getRefValue(refs["ref_company"]) })};
 
         (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
 
@@ -171,7 +137,7 @@ export function Root_ac34d44fb844f14986947bec6265888a () {
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_f135df90c464a674b19906860aeaa139}>
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_7efc6717bf9b03e62f844079fd6005b1}>
 
 <RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
 
@@ -195,6 +161,40 @@ export function Root_ac34d44fb844f14986947bec6265888a () {
   )
 }
 
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
 export default function Component() {
     
 
@@ -202,6 +202,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_ac204489da1b3580eb91b527ca84fc68/>
+    <Errorboundary_f94a93a9b8ae459530ead5ebffa95bd6/>
   )
 }
