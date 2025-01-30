@@ -8,35 +8,11 @@ from ..ui.details_circle import details_circle
 
 from ..ui.colors import *
 
-# !!!!!!
-import folium
-import requests
-import time
-class MapState(rx.State):
-    map_html: str = ""
+#* .env file
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-    def create_map(self):
-        # Координаты центра Нью-Йорка
-        ny_coords = (40.7128, -74.0060)
-        
-        # Создаем карту
-        m = folium.Map(
-            location=ny_coords,
-            zoom_start=12,  # Увеличенный зум для лучшего вида города
-            width=800,
-            height=400
-        )
-        
-        # Добавляем маркер в центр
-        folium.Marker(
-            ny_coords,
-            popup="New York City",
-            tooltip="NYC"
-        ).add_to(m)
-        
-        # Сохраняем карту
-        m.save("assets/map.html")
-        self.map_html = "assets/map.html"
 
 # !!!!!!
 
@@ -162,12 +138,38 @@ def car_detail():
                         
                         width="100%",
                     ),
-                    #! MAP TEST
+                    #* google map
+                    rx.text("Location"),
+                    rx.box(    
+                        rx.el.iframe(
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1137.450089513704!2d-74.09158970502072!3d40.87055414044765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f9ffca92fde1%3A0x331e2dac8b0921a3!2sElite%20SS%20Rentals%2C%20LLC!5e1!3m2!1sru!2sru!4v1738203653252!5m2!1sru!2sru",
+                            width="100%",
+                            height="",
+                            style={"border": "0"},
+                            allow_full_screen=True,
+                            loading="lazy",
+                            referrer_policy="no-referrer-when-downgrade",
+                            border_radius="20px",
+                        ),
+                        
+                        width="100%",
+                        margin_bottom="20px",
+                    ),
+                    #* rent button
                     rx.box(
-                        
-                        
-                    
-                    width="100%",              
+                        rx.button(
+                            rx.text("Rent Now",font_size="20px"),
+                            width="100%",
+                            height="60px",
+                            align_self="center",
+                            align_items="center",
+                            
+                            background_color=YELLOW,
+                            color="black",
+                            border_radius="30px",
+                            padding="10px",
+                        ),
+                        width="100%",
                     ),
                 ),
             ),
