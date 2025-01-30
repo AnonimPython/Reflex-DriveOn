@@ -15,88 +15,6 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
-export function Root_ee812957a52c96e65912a3def1b0522c () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const ref_company = useRef(null); refs["ref_company"] = ref_company;
-  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
-  const ref_price = useRef(null); refs["ref_price"] = ref_price;
-  const ref_image = useRef(null); refs["ref_image"] = ref_image;
-  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
-  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
-  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
-  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
-  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
-  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
-  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
-
-  
-    const handleSubmit_e98d39986caa8b9a4bef1870a3564fc5 = useCallback((ev) => {
-        const $form = ev.target
-        ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["car_model"] : getRefValue(refs["ref_car_model"]), ["company"] : getRefValue(refs["ref_company"]), ["car_height"] : getRefValue(refs["ref_car_height"]), ["image"] : getRefValue(refs["ref_image"]), ["car_width"] : getRefValue(refs["ref_car_width"]), ["car_length"] : getRefValue(refs["ref_car_length"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["seats"] : getRefValue(refs["ref_seats"]), ["price"] : getRefValue(refs["ref_price"]), ["doors"] : getRefValue(refs["ref_doors"]) })};
-
-        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
-
-        if (false) {
-            $form.reset()
-        }
-    })
-    
-
-
-
-
-  
-  return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_e98d39986caa8b9a4bef1870a3564fc5}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
-
-<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
-<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
-<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
-<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
-<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
-<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
-<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
-<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
-<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
-<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
-<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
-<RadixThemesButton type={"submit"}>
-
-{"Add Car"}
-</RadixThemesButton>
-</RadixThemesFlex>
-</RadixFormRoot>
-  )
-}
-
 const pulse = keyframes`
     0% {
         opacity: 0;
@@ -107,7 +25,7 @@ const pulse = keyframes`
 `
 
 
-export function Errorboundary_baf333d0911964d1b61a696626722374 () {
+export function Errorboundary_5c7fbaa54028d5c5f324f9fd31e1c233 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -131,7 +49,7 @@ export function Errorboundary_baf333d0911964d1b61a696626722374 () {
 
 {"Add Tour"}
 </RadixThemesHeading>
-<Root_ee812957a52c96e65912a3def1b0522c/>
+<Root_e695e2abed22c9978748193736973909/>
 </RadixThemesContainer>
 <NextHead>
 
@@ -142,23 +60,6 @@ export function Errorboundary_baf333d0911964d1b61a696626722374 () {
 <meta content={"favicon.ico"} property={"og:image"}/>
 </NextHead>
 </ErrorBoundary>
-  )
-}
-
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
   )
 }
 
@@ -195,6 +96,105 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Root_e695e2abed22c9978748193736973909 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const ref_company = useRef(null); refs["ref_company"] = ref_company;
+  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
+  const ref_price = useRef(null); refs["ref_price"] = ref_price;
+  const ref_image = useRef(null); refs["ref_image"] = ref_image;
+  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
+  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
+  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
+  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
+  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
+  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
+  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
+
+  
+    const handleSubmit_99123276039f557cafca41cc6b89ae78 = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["seats"] : getRefValue(refs["ref_seats"]), ["price"] : getRefValue(refs["ref_price"]), ["car_height"] : getRefValue(refs["ref_car_height"]), ["image"] : getRefValue(refs["ref_image"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["doors"] : getRefValue(refs["ref_doors"]), ["car_model"] : getRefValue(refs["ref_car_model"]), ["company"] : getRefValue(refs["ref_company"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["car_length"] : getRefValue(refs["ref_car_length"]), ["car_width"] : getRefValue(refs["ref_car_width"]) })};
+
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+
+        if (false) {
+            $form.reset()
+        }
+    })
+    
+
+
+
+
+  
+  return (
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_99123276039f557cafca41cc6b89ae78}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
+
+<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
+<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
+<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
+<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
+<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
+<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
+<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
+<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
+<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
+<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
+<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
+<RadixThemesButton type={"submit"}>
+
+{"Add Car"}
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixFormRoot>
+  )
+}
+
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
 export default function Component() {
     
 
@@ -202,6 +202,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_baf333d0911964d1b61a696626722374/>
+    <Errorboundary_5c7fbaa54028d5c5f324f9fd31e1c233/>
   )
 }

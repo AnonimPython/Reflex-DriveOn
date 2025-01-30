@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# !!!!!!
+
 
 class CarDetailState(rx.State):
     car: Optional[Cars] = None
@@ -34,6 +34,32 @@ class CarDetailState(rx.State):
             return rx.redirect("/error")
         finally:
             self.is_loading = False
+
+
+class CondComplexState(rx.State):
+    price: int = 0
+    base_price: int = 0
+    clicks: int = 0
+
+    @rx.event
+    async def get_price(self):
+        car_state = await self.get_state(CarDetailState)
+        if car_state.car:
+            self.base_price = int(car_state.car.price)
+            self.price = self.base_price
+            self.clicks = 1
+    
+    @rx.event
+    def increment_price(self):
+        self.clicks += 1
+        self.price = int(self.base_price) * int(self.clicks)
+    @rx.event
+    def decrement_price(self):
+        if self.clicks > 1:  # Проверка чтобы не уйти в минус
+            self.clicks -= 1
+            self.price = int(self.base_price) * int(self.clicks)
+
+
 
 def car_detail():
     return rx.box(
@@ -156,21 +182,42 @@ def car_detail():
                         margin_bottom="20px",
                     ),
                     #* rent button
-                    rx.box(
+                    rx.dialog.root(
+                    rx.dialog.trigger(
                         rx.button(
-                            rx.text("Rent Now",font_size="20px"),
-                            width="100%",
+                            rx.text("Rent Now", font_size="20px"),
+                            width="100%", 
                             height="60px",
                             align_self="center",
                             align_items="center",
-                            
                             background_color=YELLOW,
-                            color="black",
+                            color="black", 
                             border_radius="30px",
                             padding="10px",
-                        ),
-                        width="100%",
+                        )
                     ),
+                    rx.dialog.content(
+                    rx.vstack(
+                            rx.text(f"Price: {CondComplexState.price:,}"),
+                            rx.text(f"Days: {CondComplexState.clicks}"),
+                            rx.hstack(  # Располагаем кнопки горизонтально
+                                rx.button(
+                                    "Decrease Price", 
+                                    on_click=CondComplexState.decrement_price
+                                ),
+                                rx.button(
+                                    "Increase Price", 
+                                    on_click=CondComplexState.increment_price
+                                ),
+                            ),
+                        )
+                    ),
+                    #* loading price to class to calc days
+                    on_mount=CondComplexState.get_price
+                #rx.dialog.root
+                )
+                    
+                
                 ),
             ),
             on_mount=CarDetailState.get_car_details
