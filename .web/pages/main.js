@@ -15,6 +15,16 @@ import NextHead from "next/head"
 
 
 
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
 export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
@@ -72,7 +82,7 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Errorboundary_5d3c7e1e2018069c8cc65647c3a71b92 () {
+export function Errorboundary_686bbf19dcf72faebb6de8cc922035ae () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -237,8 +247,7 @@ export function Errorboundary_5d3c7e1e2018069c8cc65647c3a71b92 () {
 </RadixThemesScrollArea>
 </RadixThemesBox>
 </RadixThemesContainer>
-<RadixThemesBox css={({ ["width"] : "100%", ["marginTop"] : "30px" })}/>
-<Box_5f5487b20659bd400af27434b6ed78b7/>
+<Box_bd6e624fc6733d7f6aa1c0236d2bd4c1/>
 <RadixThemesBox>
 
 <Fragment>
@@ -286,51 +295,7 @@ export function Errorboundary_5d3c7e1e2018069c8cc65647c3a71b92 () {
   )
 }
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
-export function Text_29baa859d222136567f3da982789b137 () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
-
-{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
-</RadixThemesText>
-  )
-}
-
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
-export function Box_5f5487b20659bd400af27434b6ed78b7 () {
+export function Box_bd6e624fc6733d7f6aa1c0236d2bd4c1 () {
   
   
                 useEffect(() => {
@@ -350,8 +315,8 @@ export function Box_5f5487b20659bd400af27434b6ed78b7 () {
   return (
     <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
 
-<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_36f927bcda16833f) => (
-  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_36f927bcda16833f}>
+<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_514d6f10257aa887) => (
+  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_514d6f10257aa887}>
 
 <img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
 <RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
@@ -408,6 +373,40 @@ export function Box_5f5487b20659bd400af27434b6ed78b7 () {
   )
 }
 
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
+export function Text_29baa859d222136567f3da982789b137 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+
+{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
+</RadixThemesText>
+  )
+}
+
 export default function Component() {
     
 
@@ -415,6 +414,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_5d3c7e1e2018069c8cc65647c3a71b92/>
+    <Errorboundary_686bbf19dcf72faebb6de8cc922035ae/>
   )
 }

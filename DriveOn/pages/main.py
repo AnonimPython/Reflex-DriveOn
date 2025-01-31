@@ -153,29 +153,6 @@ def main() -> rx.Component:
             ),
             # cards of cars
             rx.box(
-                # car_card(
-                #     img_url="https://images.unsplash.com/photo-1530906358829-e84b2769270f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2slMjBsYW1ib3JnaGluaXxlbnwwfHwwfHx8MA%3D%3D",
-                #     company_name="Lamborghini",
-                #     car_model="Huracan",
-                #     rent_price="2000",
-                # ),
-                # car_card(
-                #     img_url="https://wallpapers.com/images/hd/red-smoke-black-lamborghini-9akg35f0l55h1wh9.jpg",
-                #     company_name="Lamborghini",
-                #     car_model="Huracan",
-                #     rent_price="2500",
-                # ),
-                # car_card(
-                #     img_url="https://gateauto.ru/upload/resize_cache/iblock/752/678_423_2/ixbfkr745ee0ykz31q9yv3zw6l6lj27g.webp",
-                #     company_name="Ferrari",
-                #     car_model="Encho",
-                #     rent_price="3300",
-                # ),
-                width="100%",
-                margin_top="30px",
-            ),
-            
-            rx.box(
                 rx.foreach(
                     CarsDBState.cars,
                     lambda car: car_card(
