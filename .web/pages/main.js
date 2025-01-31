@@ -15,16 +15,6 @@ import NextHead from "next/head"
 
 
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
 export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
@@ -82,7 +72,112 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Errorboundary_686bbf19dcf72faebb6de8cc922035ae () {
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
+export function Box_7bffcf851bf491159e26be6b50b78d9d () {
+  
+  
+                useEffect(() => {
+                    ((...args) => (addEvents([(Event("reflex___state____state.drive_on___pages___main____cars_db_state.get_cars", ({  }), ({  })))], args, ({  }))))()
+                    return () => {
+                        
+                    }
+                }, []);
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const reflex___state____state__drive_on___pages___main____cars_db_state = useContext(StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state)
+
+
+
+
+
+  
+  return (
+    <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
+
+<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_7b1b3a03fbefde19) => (
+  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_7b1b3a03fbefde19}>
+
+<img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
+<RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
+<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "24%", ["left"] : "25%", ["transform"] : "translate(-50%, -50%)", ["zIndex"] : "2" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
+
+<RadixThemesText as={"p"} css={({ ["marginBottom"] : "30px" })} size={"3"}>
+
+{car["company"]}
+</RadixThemesText>
+<RadixThemesText as={"p"} size={"8"} weight={"bold"}>
+
+{car["car_model"]}
+</RadixThemesText>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "70%", ["left"] : "9%", ["zIndex"] : "2" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["width"] : "100%" })} direction={"row"} gap={"3"}>
+
+<RadixThemesBox>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
+
+<RadixThemesText as={"p"} css={({ ["color"] : "#9c9c9c" })} size={"4"}>
+
+{"Rent Price"}
+</RadixThemesText>
+<RadixThemesText as={"p"} css={({ ["color"] : "white" })} size={"6"}>
+
+{("$"+car["price"])}
+</RadixThemesText>
+</RadixThemesFlex>
+</RadixThemesBox>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox>
+
+<RadixThemesBox css={({ ["padding"] : "15px", ["borderRadius"] : "50%", ["border"] : "1px solid #272727", ["alignItems"] : "center", ["background"] : "#e8ea00", ["position"] : "absolute", ["top"] : "74%", ["left"] : "78%", ["zIndex"] : "2" })}>
+
+<RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
+
+<NextLink href={("/car/"+car["id"])} passHref={true}>
+
+<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
+</NextLink>
+</RadixThemesLink>
+</RadixThemesBox>
+</RadixThemesBox>
+</RadixThemesBox>
+))}</>
+</RadixThemesBox>
+  )
+}
+
+export function Errorboundary_6b3936d5356928c413a811ca4af0cc87 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -247,7 +342,7 @@ export function Errorboundary_686bbf19dcf72faebb6de8cc922035ae () {
 </RadixThemesScrollArea>
 </RadixThemesBox>
 </RadixThemesContainer>
-<Box_bd6e624fc6733d7f6aa1c0236d2bd4c1/>
+<Box_7bffcf851bf491159e26be6b50b78d9d/>
 <RadixThemesBox>
 
 <Fragment>
@@ -295,101 +390,6 @@ export function Errorboundary_686bbf19dcf72faebb6de8cc922035ae () {
   )
 }
 
-export function Box_bd6e624fc6733d7f6aa1c0236d2bd4c1 () {
-  
-  
-                useEffect(() => {
-                    ((...args) => (addEvents([(Event("reflex___state____state.drive_on___pages___main____cars_db_state.get_cars", ({  }), ({  })))], args, ({  }))))()
-                    return () => {
-                        
-                    }
-                }, []);
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const reflex___state____state__drive_on___pages___main____cars_db_state = useContext(StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state)
-
-
-
-
-
-  
-  return (
-    <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
-
-<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_514d6f10257aa887) => (
-  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_514d6f10257aa887}>
-
-<img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
-<RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
-<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "24%", ["left"] : "25%", ["transform"] : "translate(-50%, -50%)", ["zIndex"] : "2" })}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
-
-<RadixThemesText as={"p"} css={({ ["marginBottom"] : "30px" })} size={"3"}>
-
-{car["company"]}
-</RadixThemesText>
-<RadixThemesText as={"p"} size={"8"} weight={"bold"}>
-
-{car["car_model"]}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesBox>
-<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "70%", ["left"] : "9%", ["zIndex"] : "2" })}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["width"] : "100%" })} direction={"row"} gap={"3"}>
-
-<RadixThemesBox>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
-
-<RadixThemesText as={"p"} css={({ ["color"] : "#9c9c9c" })} size={"4"}>
-
-{"Rent Price"}
-</RadixThemesText>
-<RadixThemesText as={"p"} css={({ ["color"] : "white" })} size={"6"}>
-
-{("$"+car["price"])}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesBox>
-</RadixThemesFlex>
-</RadixThemesBox>
-<RadixThemesBox>
-
-<RadixThemesBox css={({ ["padding"] : "15px", ["borderRadius"] : "50%", ["border"] : "1px solid #272727", ["alignItems"] : "center", ["background"] : "#e8ea00", ["position"] : "absolute", ["top"] : "74%", ["left"] : "78%", ["zIndex"] : "2" })}>
-
-<RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
-
-<NextLink href={("/car/"+car["id"])} passHref={true}>
-
-<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
-</NextLink>
-</RadixThemesLink>
-</RadixThemesBox>
-</RadixThemesBox>
-</RadixThemesBox>
-))}</>
-</RadixThemesBox>
-  )
-}
-
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
 export function Text_29baa859d222136567f3da982789b137 () {
   
   const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
@@ -414,6 +414,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_686bbf19dcf72faebb6de8cc922035ae/>
+    <Errorboundary_6b3936d5356928c413a811ca4af0cc87/>
   )
 }

@@ -6,14 +6,18 @@ def rental_card(
     days: str,
     phone: str,
     total_price: str,
-    car_company: str,  # Название компании (марка)
-    car_model: str,  # Модель автомобиля
+    car_company: str,
+    car_model: str, 
+    car_id: str,
 ) -> rx.Component:
     return rx.box(
         rx.vstack(
             rx.text(f"ID: {id}", font_size="16px", font_weight="bold"),
             rx.text(f"Username: {username}", font_size="16px", font_weight="bold"),
-            rx.text(f"Car: {car_company} {car_model}", font_size="14px"),  # Отображаем название и марку
+            rx.link(
+                rx.text(f"Car: {car_company} {car_model}", font_size="14px", color="blue", _hover={"text_decoration": "underline"}),
+                href=f"/car/{car_id}",
+            ),
             rx.text(f"Days: {days}", font_size="14px"),
             rx.text(f"Phone: {phone}", font_size="14px"),
             rx.text(f"Total Price: {total_price}", font_size="14px", color="green"),

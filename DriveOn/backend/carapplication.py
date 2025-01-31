@@ -22,25 +22,26 @@ class GetAllRentals(rx.State):
                         CarRentalApp.days,
                         CarRentalApp.phone,
                         CarRentalApp.total_price,
-                    
                         Cars.company,   #* car name
                         Cars.car_model, #* car model
+                        Cars.id.label("car_id"),  #* явно указываем, что это id машины
                     )
-                    .join(Cars, CarRentalApp.car_id == Cars.id)  #* Join from DB Cars
+                    .join(Cars, CarRentalApp.car_id == Cars.id)  #* connect Car table to CarRentalApp table using id's
                     .order_by(CarRentalApp.id.desc()) #* grouping by decreasing 
                 )
                 results = session.exec(query).all()
                 
-                # Сохраняем данные в виде списка словарей
+                # Сохраняем данные в rentals
                 self.rentals = [
                     {
-                        "id": rental.id,
+                        "id": rental.id,  # ID обращения
                         "username": rental.username,
                         "days": rental.days,
                         "phone": rental.phone,
                         "total_price": rental.total_price,
                         "car_company": rental.company,  #* car name
                         "car_model": rental.car_model,  #* car model
+                        "car_id": rental.car_id,  #* car id
                     }
                     for rental in results
                 ]
@@ -48,15 +49,18 @@ class GetAllRentals(rx.State):
             print(f"[WARNING] Error getting rentals from DB: {e}")
 
 
+
 def carapplication() -> rx.Component:
     return rx.box(
         rx.mobile_only(
             
             rx.box(
+                
                 rx.vstack(
                     rx.heading("All Rentals", font_size="24px", font_weight="bold", margin_bottom="20px"),
                     rx.foreach(
-                        GetAllRentals.rentals,  #* use JSON data from DB Cars and CarRentalApp
+                        
+                        GetAllRentals.rentals, #* use JSON data from DB Cars and CarRentalApp
                         lambda rental: rental_card(
                             id=rental["id"],
                             username=rental["username"],
@@ -65,12 +69,13 @@ def carapplication() -> rx.Component:
                             total_price=rental["total_price"],
                             car_company=rental["car_company"],   #* car name
                             car_model=rental["car_model"],       #* car model
+                            car_id=rental["car_id"],             #* car id
                         )
                     ),
                     spacing="4",
                     padding="20px",
                 ),
-                on_mount=GetAllRentals.get_rentals,  #* load data after page start
+                on_mount=GetAllRentals.get_rentals, #* load data after page start
             ),
         )
     )
