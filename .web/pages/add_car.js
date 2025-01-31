@@ -15,17 +15,65 @@ import NextHead from "next/head"
 
 
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
+export function Root_193aaaefc8dd51edabbf801408ffc4ae () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const ref_company = useRef(null); refs["ref_company"] = ref_company;
+  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
+  const ref_price = useRef(null); refs["ref_price"] = ref_price;
+  const ref_image = useRef(null); refs["ref_image"] = ref_image;
+  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
+  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
+  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
+  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
+  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
+  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
+  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
+
+  
+    const handleSubmit_197d539e432899485aa67a579c30af99 = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["car_length"] : getRefValue(refs["ref_car_length"]), ["seats"] : getRefValue(refs["ref_seats"]), ["image"] : getRefValue(refs["ref_image"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["company"] : getRefValue(refs["ref_company"]), ["car_height"] : getRefValue(refs["ref_car_height"]), ["doors"] : getRefValue(refs["ref_doors"]), ["car_model"] : getRefValue(refs["ref_car_model"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["price"] : getRefValue(refs["ref_price"]), ["car_width"] : getRefValue(refs["ref_car_width"]) })};
+
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+
+        if (false) {
+            $form.reset()
+        }
+    })
+    
 
 
-export function Errorboundary_5c7fbaa54028d5c5f324f9fd31e1c233 () {
+
+
+  
+  return (
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_197d539e432899485aa67a579c30af99}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
+
+<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
+<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
+<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
+<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
+<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
+<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
+<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
+<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
+<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
+<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
+<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
+<RadixThemesButton type={"submit"}>
+
+{"Add Car"}
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixFormRoot>
+  )
+}
+
+export function Errorboundary_ef83343eef2250db2af23267beba9181 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -49,7 +97,7 @@ export function Errorboundary_5c7fbaa54028d5c5f324f9fd31e1c233 () {
 
 {"Add Tour"}
 </RadixThemesHeading>
-<Root_e695e2abed22c9978748193736973909/>
+<Root_193aaaefc8dd51edabbf801408ffc4ae/>
 </RadixThemesContainer>
 <NextHead>
 
@@ -120,64 +168,6 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
-export function Root_e695e2abed22c9978748193736973909 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const ref_company = useRef(null); refs["ref_company"] = ref_company;
-  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
-  const ref_price = useRef(null); refs["ref_price"] = ref_price;
-  const ref_image = useRef(null); refs["ref_image"] = ref_image;
-  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
-  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
-  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
-  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
-  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
-  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
-  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
-
-  
-    const handleSubmit_99123276039f557cafca41cc6b89ae78 = useCallback((ev) => {
-        const $form = ev.target
-        ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["seats"] : getRefValue(refs["ref_seats"]), ["price"] : getRefValue(refs["ref_price"]), ["car_height"] : getRefValue(refs["ref_car_height"]), ["image"] : getRefValue(refs["ref_image"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["doors"] : getRefValue(refs["ref_doors"]), ["car_model"] : getRefValue(refs["ref_car_model"]), ["company"] : getRefValue(refs["ref_company"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["car_length"] : getRefValue(refs["ref_car_length"]), ["car_width"] : getRefValue(refs["ref_car_width"]) })};
-
-        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
-
-        if (false) {
-            $form.reset()
-        }
-    })
-    
-
-
-
-
-  
-  return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_99123276039f557cafca41cc6b89ae78}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
-
-<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
-<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
-<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
-<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
-<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
-<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
-<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
-<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
-<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
-<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
-<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
-<RadixThemesButton type={"submit"}>
-
-{"Add Car"}
-</RadixThemesButton>
-</RadixThemesFlex>
-</RadixFormRoot>
-  )
-}
-
 export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
@@ -195,6 +185,16 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
 export default function Component() {
     
 
@@ -202,6 +202,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_5c7fbaa54028d5c5f324f9fd31e1c233/>
+    <Errorboundary_ef83343eef2250db2af23267beba9181/>
   )
 }

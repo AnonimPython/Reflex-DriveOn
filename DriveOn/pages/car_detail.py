@@ -13,9 +13,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-
-
-
 class CarDetailState(rx.State):
     car: Optional[Cars] = None
     is_loading: bool = False
@@ -39,7 +36,7 @@ class CarDetailState(rx.State):
 class CondComplexState(rx.State):
     price: int = 0
     base_price: int = 0
-    clicks: int = 0
+    days: int = 1
 
     @rx.event
     async def get_price(self):
@@ -47,17 +44,17 @@ class CondComplexState(rx.State):
         if car_state.car:
             self.base_price = int(car_state.car.price)
             self.price = self.base_price
-            self.clicks = 1
+            self.days = 1
     
     @rx.event
     def increment_price(self):
-        self.clicks += 1
-        self.price = int(self.base_price) * int(self.clicks)
+        self.days += 1
+        self.price = int(self.base_price) * int(self.days)
     @rx.event
     def decrement_price(self):
-        if self.clicks > 1:  # Проверка чтобы не уйти в минус
-            self.clicks -= 1
-            self.price = int(self.base_price) * int(self.clicks)
+        if self.days > 1:  # Проверка чтобы не уйти в минус
+            self.days -= 1
+            self.price = int(self.base_price) * int(self.days)
 
 
 
@@ -108,6 +105,7 @@ def car_detail():
                         }
                     ),
                     #* all other details
+                    #! REMAKE CODE
                     rx.box(
                         rx.scroll_area(
                             rx.flex(
@@ -197,23 +195,77 @@ def car_detail():
                         )
                     ),
                     rx.dialog.content(
+                    rx.box(
                     rx.vstack(
-                            rx.text(f"Price: {CondComplexState.price:,}"),
-                            rx.text(f"Days: {CondComplexState.clicks}"),
-                            rx.hstack(  # Располагаем кнопки горизонтально
-                                rx.button(
-                                    "Decrease Price", 
-                                    on_click=CondComplexState.decrement_price
+                        rx.heading("Rental Details", font_size="24px", font_weight="bold", color=TEXT_COLOR),
+                        rx.divider(border_color="rgba(255, 255, 255, 0.1)", margin_y="10px"),
+                        rx.hstack(
+                            rx.vstack(
+                                rx.text("Days", font_size="14px", color="rgba(255, 255, 255, 0.7)"),
+                                rx.hstack(
+                                    rx.button(
+                                        rx.icon(tag="calendar-arrow-down", color=ICON_COLOR),
+                                        on_click=CondComplexState.decrement_price,
+                                        background_color="rgba(255, 255, 255, 0.1)",
+                                        border_radius="40px",
+                                        padding="10px",
+                                    ),
+                                    rx.text(
+                                        CondComplexState.days,
+                                        font_size="20px",
+                                        font_weight="bold",
+                                        color=TEXT_COLOR,
+                                    ),
+                                    rx.button(
+                                        rx.icon(tag="calendar-arrow-up", color=ICON_COLOR),
+                                        on_click=CondComplexState.increment_price,
+                                        background_color="rgba(255, 255, 255, 0.1)",
+                                        border_radius="40px",
+                                        padding="10px",
+                                    ),
+                                    align_items="center",
                                 ),
-                                rx.button(
-                                    "Increase Price", 
-                                    on_click=CondComplexState.increment_price
-                                ),
+                                align_items="center",
                             ),
-                        )
+                            rx.vstack(
+                                rx.text("Total Price", font_size="14px", color="rgba(255, 255, 255, 0.7)"),
+                                rx.text(
+                                    f"${CondComplexState.price:,}",
+                                    font_size="20px",
+                                    font_weight="bold",
+                                    color=TEXT_COLOR,
+                                ),
+                                align_items="center",
+                            ),
+                            justify="between",
+                            width="100%",
+                            padding_y="10px",
+                        ),
+                        rx.button(
+                            rx.text("Rent Now", font_size="16px"),
+                            width="100%",
+                            padding="12px",
+                            background_color=BUTTON_COLOR,
+                            color="black",
+                            border_radius="8px",
+                            _hover={"background_color": BUTTON_HOVER},
+                            margin_top="10px",
+                        ),
+                        spacing="4",
+                        align_items="center",
+                        padding="20px",
+                    ),
+                    background=CARD_BACKGROUND,
+                    border_radius="16px",
+                    box_shadow=CARD_SHADOW,
+                    width="100%",
+                    padding="20px",
+                    
+                ),
+                    background="rgba(0,0,0,0)",
                     ),
                     #* loading price to class to calc days
-                    on_mount=CondComplexState.get_price
+                    on_mount=CondComplexState.get_price,
                 #rx.dialog.root
                 )
                     
