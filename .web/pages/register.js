@@ -6,7 +6,7 @@ import { Fragment, useCallback, useContext, useEffect, useRef, useState } from "
 import { ColorModeContext, EventLoopContext } from "$/utils/context"
 import { Event, getBackendURL, getRefValue, getRefValues, isTrue, refs } from "$/utils/state"
 import { jsx, keyframes } from "@emotion/react"
-import { LockIcon as LucideLockIcon, MailIcon as LucideMailIcon, ShieldCheckIcon as LucideShieldCheckIcon, UserIcon as LucideUserIcon, WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
+import { LockIcon as LucideLockIcon, MailIcon as LucideMailIcon, PhoneIcon as LucidePhoneIcon, ShieldCheckIcon as LucideShieldCheckIcon, UserIcon as LucideUserIcon, WifiOffIcon as LucideWifiOffIcon } from "lucide-react"
 import { toast, Toaster } from "sonner"
 import env from "$/env.json"
 import { Box as RadixThemesBox, Button as RadixThemesButton, Flex as RadixThemesFlex, Link as RadixThemesLink, Text as RadixThemesText, TextField as RadixThemesTextField } from "@radix-ui/themes"
@@ -16,77 +16,27 @@ import NextHead from "next/head"
 
 
 
-export function Root_2d558ea82aa1cb23d590c97ae20d41f4 () {
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const ref_username = useRef(null); refs["ref_username"] = ref_username;
-  const ref_mail = useRef(null); refs["ref_mail"] = ref_mail;
-  const ref_password = useRef(null); refs["ref_password"] = ref_password;
-  const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
 
-  
-    const handleSubmit_5c030384896e789aad705a6a4fb02e52 = useCallback((ev) => {
-        const $form = ev.target
-        ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["mail"] : getRefValue(refs["ref_mail"]), ["username"] : getRefValue(refs["ref_username"]), ["password"] : getRefValue(refs["ref_password"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]) })};
-
-        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
-
-        if (false) {
-            $form.reset()
-        }
-    })
-    
 
 
 
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_5c030384896e789aad705a6a4fb02e52}>
+    <Fragment>
 
-<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
 
-<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["gap"] : "20px" })} direction={"column"} gap={"3"}>
-
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"username"} maxLength={12} name={"username"} placeholder={"Username"} radius={"large"} ref={ref_username}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideUserIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"mail"} name={"mail"} placeholder={"Mail"} radius={"large"} ref={ref_mail}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideMailIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"password"} name={"password"} placeholder={"Password"} radius={"large"} ref={ref_password}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideLockIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px", ["border"] : "red" })} id={"confirm_password"} name={"confirm_password"} placeholder={"Confirm Password"} radius={"large"} ref={ref_confirm_password}>
-
-<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
-
-<LucideShieldCheckIcon css={({ ["color"] : "var(--current-color)" })}/>
-</RadixThemesTextField.Slot>
-</RadixThemesTextField.Root>
-<RadixThemesButton css={({ ["width"] : "300px", ["height"] : "50px", ["font-size"] : "20px", ["alignSelf"] : "center", ["alignItems"] : "center", ["backgroundColor"] : "#e8ea00", ["color"] : "black" })} type={"submit"}>
-
-<RadixThemesText as={"p"}>
-
-{"Register"}
-</RadixThemesText>
-</RadixThemesButton>
-</RadixThemesFlex>
-</RadixThemesFlex>
-</RadixFormRoot>
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
   )
 }
 
@@ -123,29 +73,15 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
 
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
 
 export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
@@ -164,7 +100,89 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
-export function Errorboundary_0a12b3dd477290367ec400184d3af354 () {
+export function Root_d6122b35fb680b1d2731ec80282fe626 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const ref_username = useRef(null); refs["ref_username"] = ref_username;
+  const ref_mail = useRef(null); refs["ref_mail"] = ref_mail;
+  const ref_phone = useRef(null); refs["ref_phone"] = ref_phone;
+  const ref_password = useRef(null); refs["ref_password"] = ref_password;
+  const ref_confirm_password = useRef(null); refs["ref_confirm_password"] = ref_confirm_password;
+
+  
+    const handleSubmit_08939722a5716971721777a0aa9ea38b = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["password"] : getRefValue(refs["ref_password"]), ["phone"] : getRefValue(refs["ref_phone"]), ["username"] : getRefValue(refs["ref_username"]), ["confirm_password"] : getRefValue(refs["ref_confirm_password"]), ["mail"] : getRefValue(refs["ref_mail"]) })};
+
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+
+        if (false) {
+            $form.reset()
+        }
+    })
+    
+
+
+
+
+  
+  return (
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%", ["margin-top"] : "10%" })} onSubmit={handleSubmit_08939722a5716971721777a0aa9ea38b}>
+
+<RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["gap"] : "20px" })} direction={"column"} gap={"3"}>
+
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"username"} maxLength={12} name={"username"} placeholder={"Username"} radius={"large"} ref={ref_username}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideUserIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"mail"} name={"mail"} placeholder={"Mail"} radius={"large"} ref={ref_mail}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideMailIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"phone"} name={"phone"} placeholder={"Phone Number"} radius={"large"} ref={ref_phone}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucidePhoneIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px" })} id={"password"} name={"password"} placeholder={"Password"} radius={"large"} ref={ref_password}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideLockIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesTextField.Root css={({ ["width"] : "300px", ["height"] : "50px", ["--text-field-focus-color"] : "#e8ea00", ["background"] : "#414141", ["color"] : "white", ["& input::placeholder"] : ({ ["color"] : "white" }), ["font-size"] : "20px", ["border"] : "red" })} id={"confirm_password"} name={"confirm_password"} placeholder={"Confirm Password"} radius={"large"} ref={ref_confirm_password}>
+
+<RadixThemesTextField.Slot css={({ ["color"] : "white" })}>
+
+<LucideShieldCheckIcon css={({ ["color"] : "var(--current-color)" })}/>
+</RadixThemesTextField.Slot>
+</RadixThemesTextField.Root>
+<RadixThemesButton css={({ ["width"] : "300px", ["height"] : "50px", ["font-size"] : "20px", ["alignSelf"] : "center", ["alignItems"] : "center", ["backgroundColor"] : "#e8ea00", ["color"] : "black" })} type={"submit"}>
+
+<RadixThemesText as={"p"}>
+
+{"Register"}
+</RadixThemesText>
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixThemesFlex>
+</RadixFormRoot>
+  )
+}
+
+export function Errorboundary_ba2e0a8540731a17995aeffea037dcfa () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -200,7 +218,7 @@ export function Errorboundary_0a12b3dd477290367ec400184d3af354 () {
 </RadixThemesBox>
 <RadixThemesBox>
 
-<Root_2d558ea82aa1cb23d590c97ae20d41f4/>
+<Root_d6122b35fb680b1d2731ec80282fe626/>
 </RadixThemesBox>
 </RadixThemesBox>
 <RadixThemesFlex css={({ ["display"] : "flex", ["alignItems"] : "center", ["justifyContent"] : "center", ["margin-top"] : "10%" })}>
@@ -233,16 +251,6 @@ export function Errorboundary_0a12b3dd477290367ec400184d3af354 () {
   )
 }
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
 export default function Component() {
     
 
@@ -250,6 +258,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_0a12b3dd477290367ec400184d3af354/>
+    <Errorboundary_ba2e0a8540731a17995aeffea037dcfa/>
   )
 }

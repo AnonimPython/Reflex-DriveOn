@@ -15,9 +15,9 @@ import NextHead from "next/head"
 
 
 
-export function Text_29baa859d222136567f3da982789b137 () {
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
 
 
 
@@ -25,10 +25,17 @@ export function Text_29baa859d222136567f3da982789b137 () {
 
   
   return (
-    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+    <Fragment>
 
-{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
-</RadixThemesText>
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
   )
 }
 
@@ -65,126 +72,7 @@ export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   )
 }
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
-export function Box_7180032c1b2458f8558581a4ba72689a () {
-  
-  
-                useEffect(() => {
-                    ((...args) => (addEvents([(Event("reflex___state____state.drive_on___pages___main____cars_db_state.get_cars", ({  }), ({  })))], args, ({  }))))()
-                    return () => {
-                        
-                    }
-                }, []);
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const reflex___state____state__drive_on___pages___main____cars_db_state = useContext(StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state)
-
-
-
-
-
-  
-  return (
-    <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
-
-<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_3d4e56e47d50aeff) => (
-  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_3d4e56e47d50aeff}>
-
-<img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
-<RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
-<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "24%", ["left"] : "25%", ["transform"] : "translate(-50%, -50%)", ["zIndex"] : "2" })}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
-
-<RadixThemesText as={"p"} css={({ ["marginBottom"] : "30px" })} size={"3"}>
-
-{car["company"]}
-</RadixThemesText>
-<RadixThemesText as={"p"} size={"8"} weight={"bold"}>
-
-{car["car_model"]}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesBox>
-<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "70%", ["left"] : "9%", ["zIndex"] : "2" })}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["width"] : "100%" })} direction={"row"} gap={"3"}>
-
-<RadixThemesBox>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
-
-<RadixThemesText as={"p"} css={({ ["color"] : "#9c9c9c" })} size={"4"}>
-
-{"Rent Price"}
-</RadixThemesText>
-<RadixThemesText as={"p"} css={({ ["color"] : "white" })} size={"6"}>
-
-{("$"+car["price"])}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesBox>
-</RadixThemesFlex>
-</RadixThemesBox>
-<RadixThemesBox>
-
-<RadixThemesBox css={({ ["padding"] : "15px", ["borderRadius"] : "50%", ["border"] : "1px solid #272727", ["alignItems"] : "center", ["background"] : "#e8ea00", ["position"] : "absolute", ["top"] : "74%", ["left"] : "78%", ["zIndex"] : "2" })}>
-
-<RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
-
-<NextLink href={("/car/"+car["id"])} passHref={true}>
-
-<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
-</NextLink>
-</RadixThemesLink>
-</RadixThemesBox>
-</RadixThemesBox>
-</RadixThemesBox>
-))}</>
-</RadixThemesBox>
-  )
-}
-
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
-  )
-}
-
-export function Errorboundary_54c6cdf84bbe52a0b74525d0e24c956d () {
+export function Errorboundary_5d3c7e1e2018069c8cc65647c3a71b92 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -350,7 +238,7 @@ export function Errorboundary_54c6cdf84bbe52a0b74525d0e24c956d () {
 </RadixThemesBox>
 </RadixThemesContainer>
 <RadixThemesBox css={({ ["width"] : "100%", ["marginTop"] : "30px" })}/>
-<Box_7180032c1b2458f8558581a4ba72689a/>
+<Box_5f5487b20659bd400af27434b6ed78b7/>
 <RadixThemesBox>
 
 <Fragment>
@@ -408,6 +296,118 @@ const pulse = keyframes`
 `
 
 
+export function Text_29baa859d222136567f3da982789b137 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+
+{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
+</RadixThemesText>
+  )
+}
+
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
+export function Box_5f5487b20659bd400af27434b6ed78b7 () {
+  
+  
+                useEffect(() => {
+                    ((...args) => (addEvents([(Event("reflex___state____state.drive_on___pages___main____cars_db_state.get_cars", ({  }), ({  })))], args, ({  }))))()
+                    return () => {
+                        
+                    }
+                }, []);
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const reflex___state____state__drive_on___pages___main____cars_db_state = useContext(StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state)
+
+
+
+
+
+  
+  return (
+    <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
+
+<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_36f927bcda16833f) => (
+  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_36f927bcda16833f}>
+
+<img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
+<RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
+<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "24%", ["left"] : "25%", ["transform"] : "translate(-50%, -50%)", ["zIndex"] : "2" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
+
+<RadixThemesText as={"p"} css={({ ["marginBottom"] : "30px" })} size={"3"}>
+
+{car["company"]}
+</RadixThemesText>
+<RadixThemesText as={"p"} size={"8"} weight={"bold"}>
+
+{car["car_model"]}
+</RadixThemesText>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "70%", ["left"] : "9%", ["zIndex"] : "2" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["width"] : "100%" })} direction={"row"} gap={"3"}>
+
+<RadixThemesBox>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
+
+<RadixThemesText as={"p"} css={({ ["color"] : "#9c9c9c" })} size={"4"}>
+
+{"Rent Price"}
+</RadixThemesText>
+<RadixThemesText as={"p"} css={({ ["color"] : "white" })} size={"6"}>
+
+{("$"+car["price"])}
+</RadixThemesText>
+</RadixThemesFlex>
+</RadixThemesBox>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox>
+
+<RadixThemesBox css={({ ["padding"] : "15px", ["borderRadius"] : "50%", ["border"] : "1px solid #272727", ["alignItems"] : "center", ["background"] : "#e8ea00", ["position"] : "absolute", ["top"] : "74%", ["left"] : "78%", ["zIndex"] : "2" })}>
+
+<RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
+
+<NextLink href={("/car/"+car["id"])} passHref={true}>
+
+<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
+</NextLink>
+</RadixThemesLink>
+</RadixThemesBox>
+</RadixThemesBox>
+</RadixThemesBox>
+))}</>
+</RadixThemesBox>
+  )
+}
+
 export default function Component() {
     
 
@@ -415,6 +415,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_54c6cdf84bbe52a0b74525d0e24c956d/>
+    <Errorboundary_5d3c7e1e2018069c8cc65647c3a71b92/>
   )
 }

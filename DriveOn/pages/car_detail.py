@@ -1,13 +1,14 @@
 import reflex as rx
 from typing import Optional
 from sqlmodel import select
-from ..database import Cars
+from ..database import Cars, CarRentalApp
 from reflex_image_zoom import image_zoom
 from ..ui.topbar import topbar
 from ..ui.details_circle import details_circle
-
+from ..state import UserData
 from ..ui.colors import *
 
+from time import sleep
 #* .env file
 import os
 from dotenv import load_dotenv
@@ -52,9 +53,29 @@ class CondComplexState(rx.State):
         self.price = int(self.base_price) * int(self.days)
     @rx.event
     def decrement_price(self):
-        if self.days > 1:  # Проверка чтобы не уйти в минус
+        if self.days > 1:  #* user cant rent car at 0 days
             self.days -= 1
             self.price = int(self.base_price) * int(self.days)
+            
+    @rx.event
+    async def rent_car(self):
+        #* take user data
+        user_state = await self.get_state(UserData)
+        car_state = await self.get_state(CarDetailState)
+        #* check if user data is valid
+        if car_state.car and user_state.username:
+            #* save to DB
+            with rx.session() as session:
+                rental = CarRentalApp(
+                    username=user_state.username,
+                    car_id=str(car_state.car.id),
+                    days=str(self.days),
+                    phone=user_state.phone,
+                    total_price=str(self.price),
+                )
+                session.add(rental)
+                session.commit()
+                return rx.redirect("/main")
 
 
 
@@ -250,6 +271,7 @@ def car_detail():
                             border_radius="8px",
                             _hover={"background_color": BUTTON_HOVER},
                             margin_top="10px",
+                            on_click=CondComplexState.rent_car,
                         ),
                         spacing="4",
                         align_items="center",

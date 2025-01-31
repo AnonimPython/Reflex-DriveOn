@@ -14,6 +14,7 @@ from .pages.car_detail import car_detail
 
 from .pages.error import error_404
 from .backend.add_car import add_car
+from .backend.carapplication import carapplication
 
 #* .env file
 from dotenv import load_dotenv
@@ -53,6 +54,11 @@ def test_page() -> rx.Component:
 @rx.page(route="/add_car", title="Add Car")
 def add_car_page() -> rx.Component:
     return add_car()
+
+@rx.page(route="/carapplication", title="Car Application")
+def carapplication_page() -> rx.Component:
+    return carapplication()
+
 
 app = rx.App(
     #* global style

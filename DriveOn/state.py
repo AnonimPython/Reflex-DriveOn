@@ -3,6 +3,7 @@ import reflex as rx
 class UserData(rx.State):
     username: str = rx.LocalStorage(name="username")
     mail: str = rx.LocalStorage(name="mail")
+    phone: str = rx.LocalStorage(name="phone")
 
     #* check if user is authenticated
     @rx.var(cache=True)
@@ -25,9 +26,10 @@ class UserData(rx.State):
                 return rx.redirect("/")
 
     #* set user data for another files
-    def set_user_data(self, username: str, mail: str):
+    def set_user_data(self, username: str, mail: str, phone: str):
         self.username = username
         self.mail = mail
+        self.phone = phone
     
     # ! test LocalStorage
     def login(self):

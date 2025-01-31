@@ -41,6 +41,7 @@ class Register(UserData):
                         rx.set_value("mail", ""),  
                         rx.set_value("password", ""),  
                         rx.set_value("confirm_password", ""),  
+                        rx.set_value("phone", ""),  
                         rx.toast.warning("User with this username or email already exists")
                     ]
 
@@ -59,7 +60,8 @@ class Register(UserData):
             # adding username and mail to LocalStorage
             self.set_user_data(
                 username=form_data["username"],
-                mail=form_data["mail"]
+                mail=form_data["mail"],
+                phone=form_data["phone"],
             )
             
             # Create new user
@@ -69,7 +71,8 @@ class Register(UserData):
                     mail=form_data["mail"],
                     password=form_data["password"],
                     # password=password,
-                    confirm_password=form_data["confirm_password"]
+                    confirm_password=form_data["confirm_password"],
+                    phone=form_data["phone"],
                     # confirm_password=confirm_password
                 )
                 session.add(new_user)
@@ -137,6 +140,16 @@ def register() -> rx.Component:
                                 name="mail",
                                 id="mail",
                                 placeholder="Mail",
+                                radius="large",
+                                style=inputs_style,
+                            ),
+                            rx.input(
+                                rx.input.slot(
+                                    rx.icon(tag="phone"),color="white",
+                                ),
+                                name="phone",
+                                id="phone",
+                                placeholder="Phone Number",
                                 radius="large",
                                 style=inputs_style,
                             ),

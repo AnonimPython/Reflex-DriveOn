@@ -29,6 +29,7 @@ class RegisterUser(rx.Model, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     username: str = Field(min_length=3, max_length=50)
     mail: str
+    phone: str = Field(default="")
     password: str
     confirm_password: str
     
@@ -39,3 +40,12 @@ class Support(rx.Model, table=True):
     username: str
     phone: str
     message: str
+    
+#* car rental application
+class CarRentalApp(rx.Model, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    username: str
+    car_id: str
+    days: str
+    phone: str
+    total_price: str

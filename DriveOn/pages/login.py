@@ -7,6 +7,8 @@ from ..ui.colors import *
 
 from .register import inputs_style
 
+#! AFTER IF USER EXIST, NEED TAKE FROM DB INFO ABOUT PHONE AND ADD IT TO LOCALSTORAGE
+
 class LoginUser (UserData):
     """State for handling login."""
     form_data: dict = {}
