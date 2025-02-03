@@ -15,7 +15,48 @@ import NextHead from "next/head"
 
 
 
-export function Box_c3df04d9cea8c8ae2725f8184a41b59d () {
+export function Text_29baa859d222136567f3da982789b137 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+
+{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
+</RadixThemesText>
+  )
+}
+
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <Fragment>
+
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Box_7e9d7e380235381783590a02651b888a () {
   
   
                 useEffect(() => {
@@ -35,8 +76,8 @@ export function Box_c3df04d9cea8c8ae2725f8184a41b59d () {
   return (
     <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
 
-<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_00fc369339f71ca9) => (
-  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_00fc369339f71ca9}>
+<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_a0af684b85a1879f) => (
+  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_a0af684b85a1879f}>
 
 <img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
 <RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
@@ -93,24 +134,7 @@ export function Box_c3df04d9cea8c8ae2725f8184a41b59d () {
   )
 }
 
-export function Text_29baa859d222136567f3da982789b137 () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
-
-{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
-</RadixThemesText>
-  )
-}
-
-export function Errorboundary_21f4d47d8965f5b44e9be9d57ffc820b () {
+export function Errorboundary_fe92f8fc70744205f9ceefd0f3cda8fe () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -275,7 +299,7 @@ export function Errorboundary_21f4d47d8965f5b44e9be9d57ffc820b () {
 </RadixThemesScrollArea>
 </RadixThemesBox>
 </RadixThemesContainer>
-<Box_c3df04d9cea8c8ae2725f8184a41b59d/>
+<Box_7e9d7e380235381783590a02651b888a/>
 <RadixThemesBox>
 
 <Fragment>
@@ -332,30 +356,6 @@ const pulse = keyframes`
     }
 `
 
-
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
 
 export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
@@ -414,6 +414,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_21f4d47d8965f5b44e9be9d57ffc820b/>
+    <Errorboundary_fe92f8fc70744205f9ceefd0f3cda8fe/>
   )
 }
