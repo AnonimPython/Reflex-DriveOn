@@ -48,7 +48,7 @@ def profile() -> rx.Component:
                                 rx.button(
                                     rx.icon("message-circle-question", size=26),
                                     rx.text("Support", size="4"),
-                                    width="30px",
+                                    width="65px",
                                     height="30px",
                                 ),
                             ),

@@ -15,9 +15,18 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
+export function Link_8509dde6e98b3308c33736df58bb9bfa () {
   
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
 
 
 
@@ -25,17 +34,13 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
 
   
   return (
-    <Fragment>
+    <RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
 
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
+<NextLink href={"/login"} passHref={true}>
 
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
+<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
+</NextLink>
+</RadixThemesLink>
   )
 }
 
@@ -89,18 +94,9 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
-export function Link_8509dde6e98b3308c33736df58bb9bfa () {
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
 
 
 
@@ -108,13 +104,17 @@ export function Link_8509dde6e98b3308c33736df58bb9bfa () {
 
   
   return (
-    <RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
+    <Fragment>
 
-<NextLink href={"/login"} passHref={true}>
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
 
-<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
-</NextLink>
-</RadixThemesLink>
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
   )
 }
 

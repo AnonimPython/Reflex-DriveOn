@@ -8,6 +8,7 @@ from .pages.main import main
 from .pages.login import login
 from .pages.register import register
 from .pages.profile import profile
+from .pages.search import search
 from .pages.test import test
 from .pages.car_detail import car_detail
 
@@ -45,6 +46,10 @@ def profile_page() -> rx.Component:
 @rx.page(route="/car/[id]")
 def car_detail_page():
     return car_detail()
+
+@rx.page(route="/search", title="search")
+def search_page() -> rx.Component:
+    return search()
 
 @rx.page(route="/test", title="test")
 def test_page() -> rx.Component:

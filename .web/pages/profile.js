@@ -16,7 +16,17 @@ import NextHead from "next/head"
 
 
 
-export function Textfield__root_cd92ccaddc8aae6fb10358057ad12818 () {
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
+export function Text_33eb061b86ed2018127af7fd97813f22 () {
   
   const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
 
@@ -26,7 +36,43 @@ export function Textfield__root_cd92ccaddc8aae6fb10358057ad12818 () {
 
   
   return (
-    <RadixThemesTextField.Root name={"name"} placeholder={"Your name"} value={reflex___state____state__drive_on___state____user_data.username}/>
+    <RadixThemesText as={"p"}>
+
+{reflex___state____state__drive_on___state____user_data.mail}
+</RadixThemesText>
+  )
+}
+
+export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
+  
+  const { resolvedColorMode } = useContext(ColorModeContext)
+
+  refs['__toast'] = toast
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
+  const [userDismissed, setUserDismissed] = useState(false);
+  (useEffect(
+() => {
+    if ((connectErrors.length >= 2)) {
+        if (!userDismissed) {
+            toast.error(
+                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
+                {...toast_props, onDismiss: () => setUserDismissed(true)},
+            )
+        }
+    } else {
+        toast.dismiss("websocket-error");
+        setUserDismissed(false);  // after reconnection reset dismissed state
+    }
+}
+, [connectErrors]))
+
+
+
+
+  
+  return (
+    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
   )
 }
 
@@ -54,41 +100,7 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
-export function Heading_195b1065b03a0153b4b5de5082bea1fb () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesHeading>
-
-{reflex___state____state__drive_on___state____user_data.username}
-</RadixThemesHeading>
-  )
-}
-
-export function Text_33eb061b86ed2018127af7fd97813f22 () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesText as={"p"}>
-
-{reflex___state____state__drive_on___state____user_data.mail}
-</RadixThemesText>
-  )
-}
-
-export function Errorboundary_7e90299c6fb688ac1b7dbba48b738966 () {
+export function Errorboundary_e70799baeda447d0c2f0d9b0d2de1ce1 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -135,7 +147,7 @@ export function Errorboundary_7e90299c6fb688ac1b7dbba48b738966 () {
 
 <RadixThemesAlertDialog.Trigger>
 
-<RadixThemesButton css={({ ["width"] : "30px", ["height"] : "30px" })}>
+<RadixThemesButton css={({ ["width"] : "65px", ["height"] : "30px" })}>
 
 <LucideMessageCircleQuestionIcon css={({ ["color"] : "var(--current-color)" })} size={26}/>
 <RadixThemesText as={"p"} size={"4"}>
@@ -206,6 +218,23 @@ export function Errorboundary_7e90299c6fb688ac1b7dbba48b738966 () {
   )
 }
 
+export function Heading_195b1065b03a0153b4b5de5082bea1fb () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesHeading>
+
+{reflex___state____state__drive_on___state____user_data.username}
+</RadixThemesHeading>
+  )
+}
+
 export function Textfield__root_5ec88443a3b6c406cea4697270afbc6e () {
   
   const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
@@ -220,42 +249,9 @@ export function Textfield__root_5ec88443a3b6c406cea4697270afbc6e () {
   )
 }
 
-export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
+export function Textfield__root_cd92ccaddc8aae6fb10358057ad12818 () {
   
-  const { resolvedColorMode } = useContext(ColorModeContext)
-
-  refs['__toast'] = toast
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
-  const [userDismissed, setUserDismissed] = useState(false);
-  (useEffect(
-() => {
-    if ((connectErrors.length >= 2)) {
-        if (!userDismissed) {
-            toast.error(
-                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
-                {...toast_props, onDismiss: () => setUserDismissed(true)},
-            )
-        }
-    } else {
-        toast.dismiss("websocket-error");
-        setUserDismissed(false);  // after reconnection reset dismissed state
-    }
-}
-, [connectErrors]))
-
-
-
-
-  
-  return (
-    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
-  )
-}
-
-export function Div_602c14884fa2de27f522fe8f94374b02 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
 
 
 
@@ -263,22 +259,9 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
 
   
   return (
-    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
-
-<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
-</div>
+    <RadixThemesTextField.Root name={"name"} placeholder={"Your name"} value={reflex___state____state__drive_on___state____user_data.username}/>
   )
 }
-
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
 
 export function Root_935821e892a98ccbe7409e8e4870936b () {
   
@@ -332,6 +315,23 @@ export function Root_935821e892a98ccbe7409e8e4870936b () {
   )
 }
 
+export function Div_602c14884fa2de27f522fe8f94374b02 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+
+
+
+  
+  return (
+    <div css={({ ["position"] : "fixed", ["width"] : "100vw", ["height"] : "0" })} title={("Connection Error: "+((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : ''))}>
+
+<Fragment_f2f0916d2fcc08b7cdf76cec697f0750/>
+</div>
+  )
+}
+
 export default function Component() {
     
 
@@ -339,6 +339,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_7e90299c6fb688ac1b7dbba48b738966/>
+    <Errorboundary_e70799baeda447d0c2f0d9b0d2de1ce1/>
   )
 }

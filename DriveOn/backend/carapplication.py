@@ -24,7 +24,7 @@ class GetAllRentals(rx.State):
                         CarRentalApp.total_price,
                         Cars.company,   #* car name
                         Cars.car_model, #* car model
-                        Cars.id.label("car_id"),  #* явно указываем, что это id машины
+                        Cars.id.label("car_id"),  #*  -> Cars.id AS car_id | car id in Cars DB
                     )
                     .join(Cars, CarRentalApp.car_id == Cars.id)  #* connect Car table to CarRentalApp table using id's
                     .order_by(CarRentalApp.id.desc()) #* grouping by decreasing 
