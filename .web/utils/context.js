@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo, useReducer, useState } from "react"
 import { applyDelta, Event, hydrateClientStorage, useEventLoop, refs } from "$/utils/state.js"
 
-export const initialState = {"reflex___state____state": {"id": "", "is_hydrated": false, "router": {"session": {"client_token": "", "client_ip": "", "session_id": ""}, "headers": {"host": "", "origin": "", "upgrade": "", "connection": "", "cookie": "", "pragma": "", "cache_control": "", "user_agent": "", "sec_websocket_version": "", "sec_websocket_key": "", "sec_websocket_extensions": "", "accept_encoding": "", "accept_language": ""}, "page": {"host": "", "path": "", "raw_path": "", "full_path": "", "full_raw_path": "", "params": {}}}}, "reflex___state____state.drive_on___pages___profile____support_state": {"form_data": {}}, "reflex___state____state.drive_on___pages___search____search_state": {"search_query": ""}, "reflex___state____state.drive_on___backend___add_car____add_car_state": {"acceleration_to_100": 0, "car_height": 0, "car_length": 0, "car_model": "", "car_width": 0, "company": "", "doors": 0, "horse_power": 0, "image": "", "price": 0, "seats": 0}, "reflex___state____state.drive_on___backend___carapplication____get_all_rentals": {"rentals": []}, "reflex___state____state.drive_on___pages___main____filter_buttons_state": {}, "reflex___state____state.reflex___state____update_vars_internal_state": {}, "reflex___state____state.drive_on___pages___car_detail____car_detail_state": {"car": null, "is_loading": false}, "reflex___state____state.reflex___state____frontend_event_exception_state": {}, "reflex___state____state.drive_on___state____user_data": {"is_authenticated": false, "mail": "", "phone": "", "username": ""}, "reflex___state____state.drive_on___state____user_data.drive_on___pages___login____login_user": {"error": "", "form_data": {}}, "reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register": {"confirm_password": "", "form_mail": "", "form_username": "", "password": ""}, "reflex___state____state.drive_on___pages___car_detail____cond_complex_state": {"base_price": 0, "days": 1, "price": 0}, "reflex___state____state.drive_on___pages___main____cars_db_state": {"cars": []}, "reflex___state____state.reflex___state____on_load_internal_state": {}}
+export const initialState = {"reflex___state____state": {"id": "", "is_hydrated": false, "router": {"session": {"client_token": "", "client_ip": "", "session_id": ""}, "headers": {"host": "", "origin": "", "upgrade": "", "connection": "", "cookie": "", "pragma": "", "cache_control": "", "user_agent": "", "sec_websocket_version": "", "sec_websocket_key": "", "sec_websocket_extensions": "", "accept_encoding": "", "accept_language": ""}, "page": {"host": "", "path": "", "raw_path": "", "full_path": "", "full_raw_path": "", "params": {}}}}, "reflex___state____state.drive_on___pages___main____cars_db_state": {"cars": []}, "reflex___state____state.drive_on___pages___profile____support_state": {"form_data": {}}, "reflex___state____state.drive_on___pages___search____search_state": {"search_query": "", "search_results": []}, "reflex___state____state.reflex___state____on_load_internal_state": {}, "reflex___state____state.drive_on___pages___main____filter_buttons_state": {}, "reflex___state____state.drive_on___backend___carapplication____get_all_rentals": {"rentals": []}, "reflex___state____state.drive_on___state____user_data": {"is_authenticated": false, "mail": "", "phone": "", "username": ""}, "reflex___state____state.drive_on___state____user_data.drive_on___pages___login____login_user": {"error": "", "form_data": {}}, "reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register": {"confirm_password": "", "form_mail": "", "form_username": "", "password": ""}, "reflex___state____state.drive_on___pages___car_detail____cond_complex_state": {"base_price": 0, "days": 1, "price": 0}, "reflex___state____state.reflex___state____update_vars_internal_state": {}, "reflex___state____state.drive_on___backend___add_car____add_car_state": {"acceleration_to_100": 0, "car_height": 0, "car_length": 0, "car_model": "", "car_width": 0, "company": "", "doors": 0, "horse_power": 0, "image": "", "price": 0, "seats": 0}, "reflex___state____state.drive_on___pages___car_detail____car_detail_state": {"car": null, "is_loading": false}, "reflex___state____state.reflex___state____frontend_event_exception_state": {}}
 
 export const defaultColorMode = "dark"
 export const ColorModeContext = createContext(null);
@@ -9,20 +9,20 @@ export const UploadFilesContext = createContext(null);
 export const DispatchContext = createContext(null);
 export const StateContexts = {
   reflex___state____state: createContext(null),
+  reflex___state____state__drive_on___pages___main____cars_db_state: createContext(null),
   reflex___state____state__drive_on___pages___profile____support_state: createContext(null),
   reflex___state____state__drive_on___pages___search____search_state: createContext(null),
-  reflex___state____state__drive_on___backend___add_car____add_car_state: createContext(null),
-  reflex___state____state__drive_on___backend___carapplication____get_all_rentals: createContext(null),
+  reflex___state____state__reflex___state____on_load_internal_state: createContext(null),
   reflex___state____state__drive_on___pages___main____filter_buttons_state: createContext(null),
-  reflex___state____state__reflex___state____update_vars_internal_state: createContext(null),
-  reflex___state____state__drive_on___pages___car_detail____car_detail_state: createContext(null),
-  reflex___state____state__reflex___state____frontend_event_exception_state: createContext(null),
+  reflex___state____state__drive_on___backend___carapplication____get_all_rentals: createContext(null),
   reflex___state____state__drive_on___state____user_data: createContext(null),
   reflex___state____state__drive_on___state____user_data__drive_on___pages___login____login_user: createContext(null),
   reflex___state____state__drive_on___state____user_data__drive_on___pages___register____register: createContext(null),
   reflex___state____state__drive_on___pages___car_detail____cond_complex_state: createContext(null),
-  reflex___state____state__drive_on___pages___main____cars_db_state: createContext(null),
-  reflex___state____state__reflex___state____on_load_internal_state: createContext(null),
+  reflex___state____state__reflex___state____update_vars_internal_state: createContext(null),
+  reflex___state____state__drive_on___backend___add_car____add_car_state: createContext(null),
+  reflex___state____state__drive_on___pages___car_detail____car_detail_state: createContext(null),
+  reflex___state____state__reflex___state____frontend_event_exception_state: createContext(null),
 }
 export const EventLoopContext = createContext(null);
 export const clientStorage = {"cookies": {}, "local_storage": {"reflex___state____state.drive_on___state____user_data.username": {"name": "username", "sync": false}, "reflex___state____state.drive_on___state____user_data.mail": {"name": "mail", "sync": false}, "reflex___state____state.drive_on___state____user_data.phone": {"name": "phone", "sync": false}}, "session_storage": {}}
@@ -62,7 +62,7 @@ export const initialEvents = () => [
 
 export const isDevMode = true
 
-export const lastCompiledTimeStamp = "2025-02-02 01:54:04.629493"
+export const lastCompiledTimeStamp = "2025-02-04 01:32:20.135920"
 
 export function UploadFilesProvider({ children }) {
   const [filesById, setFilesById] = useState({})
@@ -94,73 +94,73 @@ export function EventLoopProvider({ children }) {
 
 export function StateProvider({ children }) {
   const [reflex___state____state, dispatch_reflex___state____state] = useReducer(applyDelta, initialState["reflex___state____state"])
+  const [reflex___state____state__drive_on___pages___main____cars_db_state, dispatch_reflex___state____state__drive_on___pages___main____cars_db_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___main____cars_db_state"])
   const [reflex___state____state__drive_on___pages___profile____support_state, dispatch_reflex___state____state__drive_on___pages___profile____support_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___profile____support_state"])
   const [reflex___state____state__drive_on___pages___search____search_state, dispatch_reflex___state____state__drive_on___pages___search____search_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___search____search_state"])
-  const [reflex___state____state__drive_on___backend___add_car____add_car_state, dispatch_reflex___state____state__drive_on___backend___add_car____add_car_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___backend___add_car____add_car_state"])
-  const [reflex___state____state__drive_on___backend___carapplication____get_all_rentals, dispatch_reflex___state____state__drive_on___backend___carapplication____get_all_rentals] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___backend___carapplication____get_all_rentals"])
+  const [reflex___state____state__reflex___state____on_load_internal_state, dispatch_reflex___state____state__reflex___state____on_load_internal_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____on_load_internal_state"])
   const [reflex___state____state__drive_on___pages___main____filter_buttons_state, dispatch_reflex___state____state__drive_on___pages___main____filter_buttons_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___main____filter_buttons_state"])
-  const [reflex___state____state__reflex___state____update_vars_internal_state, dispatch_reflex___state____state__reflex___state____update_vars_internal_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____update_vars_internal_state"])
-  const [reflex___state____state__drive_on___pages___car_detail____car_detail_state, dispatch_reflex___state____state__drive_on___pages___car_detail____car_detail_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___car_detail____car_detail_state"])
-  const [reflex___state____state__reflex___state____frontend_event_exception_state, dispatch_reflex___state____state__reflex___state____frontend_event_exception_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____frontend_event_exception_state"])
+  const [reflex___state____state__drive_on___backend___carapplication____get_all_rentals, dispatch_reflex___state____state__drive_on___backend___carapplication____get_all_rentals] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___backend___carapplication____get_all_rentals"])
   const [reflex___state____state__drive_on___state____user_data, dispatch_reflex___state____state__drive_on___state____user_data] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___state____user_data"])
   const [reflex___state____state__drive_on___state____user_data__drive_on___pages___login____login_user, dispatch_reflex___state____state__drive_on___state____user_data__drive_on___pages___login____login_user] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___state____user_data.drive_on___pages___login____login_user"])
   const [reflex___state____state__drive_on___state____user_data__drive_on___pages___register____register, dispatch_reflex___state____state__drive_on___state____user_data__drive_on___pages___register____register] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register"])
   const [reflex___state____state__drive_on___pages___car_detail____cond_complex_state, dispatch_reflex___state____state__drive_on___pages___car_detail____cond_complex_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___car_detail____cond_complex_state"])
-  const [reflex___state____state__drive_on___pages___main____cars_db_state, dispatch_reflex___state____state__drive_on___pages___main____cars_db_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___main____cars_db_state"])
-  const [reflex___state____state__reflex___state____on_load_internal_state, dispatch_reflex___state____state__reflex___state____on_load_internal_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____on_load_internal_state"])
+  const [reflex___state____state__reflex___state____update_vars_internal_state, dispatch_reflex___state____state__reflex___state____update_vars_internal_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____update_vars_internal_state"])
+  const [reflex___state____state__drive_on___backend___add_car____add_car_state, dispatch_reflex___state____state__drive_on___backend___add_car____add_car_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___backend___add_car____add_car_state"])
+  const [reflex___state____state__drive_on___pages___car_detail____car_detail_state, dispatch_reflex___state____state__drive_on___pages___car_detail____car_detail_state] = useReducer(applyDelta, initialState["reflex___state____state.drive_on___pages___car_detail____car_detail_state"])
+  const [reflex___state____state__reflex___state____frontend_event_exception_state, dispatch_reflex___state____state__reflex___state____frontend_event_exception_state] = useReducer(applyDelta, initialState["reflex___state____state.reflex___state____frontend_event_exception_state"])
   const dispatchers = useMemo(() => {
     return {
       "reflex___state____state": dispatch_reflex___state____state,
+      "reflex___state____state.drive_on___pages___main____cars_db_state": dispatch_reflex___state____state__drive_on___pages___main____cars_db_state,
       "reflex___state____state.drive_on___pages___profile____support_state": dispatch_reflex___state____state__drive_on___pages___profile____support_state,
       "reflex___state____state.drive_on___pages___search____search_state": dispatch_reflex___state____state__drive_on___pages___search____search_state,
-      "reflex___state____state.drive_on___backend___add_car____add_car_state": dispatch_reflex___state____state__drive_on___backend___add_car____add_car_state,
-      "reflex___state____state.drive_on___backend___carapplication____get_all_rentals": dispatch_reflex___state____state__drive_on___backend___carapplication____get_all_rentals,
+      "reflex___state____state.reflex___state____on_load_internal_state": dispatch_reflex___state____state__reflex___state____on_load_internal_state,
       "reflex___state____state.drive_on___pages___main____filter_buttons_state": dispatch_reflex___state____state__drive_on___pages___main____filter_buttons_state,
-      "reflex___state____state.reflex___state____update_vars_internal_state": dispatch_reflex___state____state__reflex___state____update_vars_internal_state,
-      "reflex___state____state.drive_on___pages___car_detail____car_detail_state": dispatch_reflex___state____state__drive_on___pages___car_detail____car_detail_state,
-      "reflex___state____state.reflex___state____frontend_event_exception_state": dispatch_reflex___state____state__reflex___state____frontend_event_exception_state,
+      "reflex___state____state.drive_on___backend___carapplication____get_all_rentals": dispatch_reflex___state____state__drive_on___backend___carapplication____get_all_rentals,
       "reflex___state____state.drive_on___state____user_data": dispatch_reflex___state____state__drive_on___state____user_data,
       "reflex___state____state.drive_on___state____user_data.drive_on___pages___login____login_user": dispatch_reflex___state____state__drive_on___state____user_data__drive_on___pages___login____login_user,
       "reflex___state____state.drive_on___state____user_data.drive_on___pages___register____register": dispatch_reflex___state____state__drive_on___state____user_data__drive_on___pages___register____register,
       "reflex___state____state.drive_on___pages___car_detail____cond_complex_state": dispatch_reflex___state____state__drive_on___pages___car_detail____cond_complex_state,
-      "reflex___state____state.drive_on___pages___main____cars_db_state": dispatch_reflex___state____state__drive_on___pages___main____cars_db_state,
-      "reflex___state____state.reflex___state____on_load_internal_state": dispatch_reflex___state____state__reflex___state____on_load_internal_state,
+      "reflex___state____state.reflex___state____update_vars_internal_state": dispatch_reflex___state____state__reflex___state____update_vars_internal_state,
+      "reflex___state____state.drive_on___backend___add_car____add_car_state": dispatch_reflex___state____state__drive_on___backend___add_car____add_car_state,
+      "reflex___state____state.drive_on___pages___car_detail____car_detail_state": dispatch_reflex___state____state__drive_on___pages___car_detail____car_detail_state,
+      "reflex___state____state.reflex___state____frontend_event_exception_state": dispatch_reflex___state____state__reflex___state____frontend_event_exception_state,
     }
   }, [])
 
   return (
     <StateContexts.reflex___state____state.Provider value={ reflex___state____state }>
+    <StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state.Provider value={ reflex___state____state__drive_on___pages___main____cars_db_state }>
     <StateContexts.reflex___state____state__drive_on___pages___profile____support_state.Provider value={ reflex___state____state__drive_on___pages___profile____support_state }>
     <StateContexts.reflex___state____state__drive_on___pages___search____search_state.Provider value={ reflex___state____state__drive_on___pages___search____search_state }>
-    <StateContexts.reflex___state____state__drive_on___backend___add_car____add_car_state.Provider value={ reflex___state____state__drive_on___backend___add_car____add_car_state }>
-    <StateContexts.reflex___state____state__drive_on___backend___carapplication____get_all_rentals.Provider value={ reflex___state____state__drive_on___backend___carapplication____get_all_rentals }>
+    <StateContexts.reflex___state____state__reflex___state____on_load_internal_state.Provider value={ reflex___state____state__reflex___state____on_load_internal_state }>
     <StateContexts.reflex___state____state__drive_on___pages___main____filter_buttons_state.Provider value={ reflex___state____state__drive_on___pages___main____filter_buttons_state }>
-    <StateContexts.reflex___state____state__reflex___state____update_vars_internal_state.Provider value={ reflex___state____state__reflex___state____update_vars_internal_state }>
-    <StateContexts.reflex___state____state__drive_on___pages___car_detail____car_detail_state.Provider value={ reflex___state____state__drive_on___pages___car_detail____car_detail_state }>
-    <StateContexts.reflex___state____state__reflex___state____frontend_event_exception_state.Provider value={ reflex___state____state__reflex___state____frontend_event_exception_state }>
+    <StateContexts.reflex___state____state__drive_on___backend___carapplication____get_all_rentals.Provider value={ reflex___state____state__drive_on___backend___carapplication____get_all_rentals }>
     <StateContexts.reflex___state____state__drive_on___state____user_data.Provider value={ reflex___state____state__drive_on___state____user_data }>
     <StateContexts.reflex___state____state__drive_on___state____user_data__drive_on___pages___login____login_user.Provider value={ reflex___state____state__drive_on___state____user_data__drive_on___pages___login____login_user }>
     <StateContexts.reflex___state____state__drive_on___state____user_data__drive_on___pages___register____register.Provider value={ reflex___state____state__drive_on___state____user_data__drive_on___pages___register____register }>
     <StateContexts.reflex___state____state__drive_on___pages___car_detail____cond_complex_state.Provider value={ reflex___state____state__drive_on___pages___car_detail____cond_complex_state }>
-    <StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state.Provider value={ reflex___state____state__drive_on___pages___main____cars_db_state }>
-    <StateContexts.reflex___state____state__reflex___state____on_load_internal_state.Provider value={ reflex___state____state__reflex___state____on_load_internal_state }>
+    <StateContexts.reflex___state____state__reflex___state____update_vars_internal_state.Provider value={ reflex___state____state__reflex___state____update_vars_internal_state }>
+    <StateContexts.reflex___state____state__drive_on___backend___add_car____add_car_state.Provider value={ reflex___state____state__drive_on___backend___add_car____add_car_state }>
+    <StateContexts.reflex___state____state__drive_on___pages___car_detail____car_detail_state.Provider value={ reflex___state____state__drive_on___pages___car_detail____car_detail_state }>
+    <StateContexts.reflex___state____state__reflex___state____frontend_event_exception_state.Provider value={ reflex___state____state__reflex___state____frontend_event_exception_state }>
       <DispatchContext.Provider value={dispatchers}>
         {children}
       </DispatchContext.Provider>
-    </StateContexts.reflex___state____state__reflex___state____on_load_internal_state.Provider>
-    </StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state.Provider>
+    </StateContexts.reflex___state____state__reflex___state____frontend_event_exception_state.Provider>
+    </StateContexts.reflex___state____state__drive_on___pages___car_detail____car_detail_state.Provider>
+    </StateContexts.reflex___state____state__drive_on___backend___add_car____add_car_state.Provider>
+    </StateContexts.reflex___state____state__reflex___state____update_vars_internal_state.Provider>
     </StateContexts.reflex___state____state__drive_on___pages___car_detail____cond_complex_state.Provider>
     </StateContexts.reflex___state____state__drive_on___state____user_data__drive_on___pages___register____register.Provider>
     </StateContexts.reflex___state____state__drive_on___state____user_data__drive_on___pages___login____login_user.Provider>
     </StateContexts.reflex___state____state__drive_on___state____user_data.Provider>
-    </StateContexts.reflex___state____state__reflex___state____frontend_event_exception_state.Provider>
-    </StateContexts.reflex___state____state__drive_on___pages___car_detail____car_detail_state.Provider>
-    </StateContexts.reflex___state____state__reflex___state____update_vars_internal_state.Provider>
-    </StateContexts.reflex___state____state__drive_on___pages___main____filter_buttons_state.Provider>
     </StateContexts.reflex___state____state__drive_on___backend___carapplication____get_all_rentals.Provider>
-    </StateContexts.reflex___state____state__drive_on___backend___add_car____add_car_state.Provider>
+    </StateContexts.reflex___state____state__drive_on___pages___main____filter_buttons_state.Provider>
+    </StateContexts.reflex___state____state__reflex___state____on_load_internal_state.Provider>
     </StateContexts.reflex___state____state__drive_on___pages___search____search_state.Provider>
     </StateContexts.reflex___state____state__drive_on___pages___profile____support_state.Provider>
+    </StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state.Provider>
     </StateContexts.reflex___state____state.Provider>
   )
 }

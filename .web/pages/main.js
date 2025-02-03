@@ -15,7 +15,7 @@ import NextHead from "next/head"
 
 
 
-export function Box_2b1c9181283db89d94250b1285f5ec3b () {
+export function Box_c3df04d9cea8c8ae2725f8184a41b59d () {
   
   
                 useEffect(() => {
@@ -35,8 +35,8 @@ export function Box_2b1c9181283db89d94250b1285f5ec3b () {
   return (
     <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
 
-<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_c1f8ad08f61b6dc6) => (
-  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_c1f8ad08f61b6dc6}>
+<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_00fc369339f71ca9) => (
+  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_00fc369339f71ca9}>
 
 <img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
 <RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
@@ -93,17 +93,24 @@ export function Box_2b1c9181283db89d94250b1285f5ec3b () {
   )
 }
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
+export function Text_29baa859d222136567f3da982789b137 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
 
 
-export function Errorboundary_18127a90fb820bbd4cd24a3904fd72de () {
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+
+{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
+</RadixThemesText>
+  )
+}
+
+export function Errorboundary_21f4d47d8965f5b44e9be9d57ffc820b () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -268,7 +275,7 @@ export function Errorboundary_18127a90fb820bbd4cd24a3904fd72de () {
 </RadixThemesScrollArea>
 </RadixThemesBox>
 </RadixThemesContainer>
-<Box_2b1c9181283db89d94250b1285f5ec3b/>
+<Box_c3df04d9cea8c8ae2725f8184a41b59d/>
 <RadixThemesBox>
 
 <Fragment>
@@ -316,9 +323,19 @@ export function Errorboundary_18127a90fb820bbd4cd24a3904fd72de () {
   )
 }
 
-export function Text_29baa859d222136567f3da982789b137 () {
+const pulse = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
+
+export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
 
 
 
@@ -326,10 +343,17 @@ export function Text_29baa859d222136567f3da982789b137 () {
 
   
   return (
-    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+    <Fragment>
 
-{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
-</RadixThemesText>
+{isTrue((connectErrors.length > 0)) ? (
+  <Fragment>
+
+<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
   )
 }
 
@@ -383,30 +407,6 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
-export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
-  
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-
-
-
-
-
-  
-  return (
-    <Fragment>
-
-{isTrue((connectErrors.length > 0)) ? (
-  <Fragment>
-
-<LucideWifiOffIcon css={({ ["color"] : "crimson", ["zIndex"] : 9999, ["position"] : "fixed", ["bottom"] : "33px", ["right"] : "33px", ["animation"] : (pulse+" 1s infinite") })} size={32}/>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
-  )
-}
-
 export default function Component() {
     
 
@@ -414,6 +414,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_18127a90fb820bbd4cd24a3904fd72de/>
+    <Errorboundary_21f4d47d8965f5b44e9be9d57ffc820b/>
   )
 }
