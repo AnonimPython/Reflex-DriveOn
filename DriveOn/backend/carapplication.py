@@ -52,7 +52,6 @@ class GetAllRentals(rx.State):
 
 def carapplication() -> rx.Component:
     return rx.box(
-        rx.mobile_only(
             
             rx.box(
                 
@@ -78,4 +77,3 @@ def carapplication() -> rx.Component:
                 on_mount=GetAllRentals.get_rentals, #* load data after page start
             ),
         )
-    )
