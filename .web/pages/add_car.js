@@ -15,7 +15,65 @@ import NextHead from "next/head"
 
 
 
-export function Errorboundary_777ed807918809d992b62ed4157b1ecc () {
+export function Root_8234a29eab6e0b0252512355e7bd2eea () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const ref_company = useRef(null); refs["ref_company"] = ref_company;
+  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
+  const ref_price = useRef(null); refs["ref_price"] = ref_price;
+  const ref_image = useRef(null); refs["ref_image"] = ref_image;
+  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
+  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
+  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
+  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
+  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
+  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
+  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
+
+  
+    const handleSubmit_d589cc803a6452461fe362238361ed05 = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["car_length"] : getRefValue(refs["ref_car_length"]), ["doors"] : getRefValue(refs["ref_doors"]), ["price"] : getRefValue(refs["ref_price"]), ["image"] : getRefValue(refs["ref_image"]), ["car_height"] : getRefValue(refs["ref_car_height"]), ["seats"] : getRefValue(refs["ref_seats"]), ["company"] : getRefValue(refs["ref_company"]), ["car_model"] : getRefValue(refs["ref_car_model"]), ["car_width"] : getRefValue(refs["ref_car_width"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]) })};
+
+        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
+
+        if (false) {
+            $form.reset()
+        }
+    })
+    
+
+
+
+
+  
+  return (
+    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_d589cc803a6452461fe362238361ed05}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
+
+<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
+<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
+<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
+<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
+<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
+<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
+<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
+<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
+<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
+<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
+<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
+<RadixThemesButton type={"submit"}>
+
+{"Add Car"}
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixFormRoot>
+  )
+}
+
+export function Errorboundary_1c598bb412f120828c029dc071940ca4 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -39,7 +97,7 @@ export function Errorboundary_777ed807918809d992b62ed4157b1ecc () {
 
 {"Add Tour"}
 </RadixThemesHeading>
-<Root_aa67d767bc778554c324af1d810f428f/>
+<Root_8234a29eab6e0b0252512355e7bd2eea/>
 </RadixThemesContainer>
 <NextHead>
 
@@ -53,38 +111,15 @@ export function Errorboundary_777ed807918809d992b62ed4157b1ecc () {
   )
 }
 
-export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
-  
-  const { resolvedColorMode } = useContext(ColorModeContext)
-
-  refs['__toast'] = toast
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
-  const [userDismissed, setUserDismissed] = useState(false);
-  (useEffect(
-() => {
-    if ((connectErrors.length >= 2)) {
-        if (!userDismissed) {
-            toast.error(
-                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
-                {...toast_props, onDismiss: () => setUserDismissed(true)},
-            )
-        }
-    } else {
-        toast.dismiss("websocket-error");
-        setUserDismissed(false);  // after reconnection reset dismissed state
+const pulse = keyframes`
+    0% {
+        opacity: 0;
     }
-}
-, [connectErrors]))
+    100% {
+        opacity: 1;
+    }
+`
 
-
-
-
-  
-  return (
-    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
-  )
-}
 
 export function Div_602c14884fa2de27f522fe8f94374b02 () {
   
@@ -127,71 +162,36 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
-const pulse = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-`
-
-
-export function Root_aa67d767bc778554c324af1d810f428f () {
+export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
   
+  const { resolvedColorMode } = useContext(ColorModeContext)
+
+  refs['__toast'] = toast
   const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const ref_company = useRef(null); refs["ref_company"] = ref_company;
-  const ref_car_model = useRef(null); refs["ref_car_model"] = ref_car_model;
-  const ref_price = useRef(null); refs["ref_price"] = ref_price;
-  const ref_image = useRef(null); refs["ref_image"] = ref_image;
-  const ref_horse_power = useRef(null); refs["ref_horse_power"] = ref_horse_power;
-  const ref_car_length = useRef(null); refs["ref_car_length"] = ref_car_length;
-  const ref_car_width = useRef(null); refs["ref_car_width"] = ref_car_width;
-  const ref_car_height = useRef(null); refs["ref_car_height"] = ref_car_height;
-  const ref_seats = useRef(null); refs["ref_seats"] = ref_seats;
-  const ref_doors = useRef(null); refs["ref_doors"] = ref_doors;
-  const ref_acceleration_to_100 = useRef(null); refs["ref_acceleration_to_100"] = ref_acceleration_to_100;
-
-  
-    const handleSubmit_bf90a9978f1d4249070af021d55b9682 = useCallback((ev) => {
-        const $form = ev.target
-        ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...({ ["price"] : getRefValue(refs["ref_price"]), ["car_length"] : getRefValue(refs["ref_car_length"]), ["car_width"] : getRefValue(refs["ref_car_width"]), ["seats"] : getRefValue(refs["ref_seats"]), ["doors"] : getRefValue(refs["ref_doors"]), ["image"] : getRefValue(refs["ref_image"]), ["company"] : getRefValue(refs["ref_company"]), ["car_model"] : getRefValue(refs["ref_car_model"]), ["horse_power"] : getRefValue(refs["ref_horse_power"]), ["acceleration_to_100"] : getRefValue(refs["ref_acceleration_to_100"]), ["car_height"] : getRefValue(refs["ref_car_height"]) })};
-
-        (((...args) => (addEvents([(Event("reflex___state____state.drive_on___backend___add_car____add_car_state.handle_submit", ({ ["form_data"] : form_data }), ({  })))], args, ({  }))))());
-
-        if (false) {
-            $form.reset()
+  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
+  const [userDismissed, setUserDismissed] = useState(false);
+  (useEffect(
+() => {
+    if ((connectErrors.length >= 2)) {
+        if (!userDismissed) {
+            toast.error(
+                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
+                {...toast_props, onDismiss: () => setUserDismissed(true)},
+            )
         }
-    })
-    
+    } else {
+        toast.dismiss("websocket-error");
+        setUserDismissed(false);  // after reconnection reset dismissed state
+    }
+}
+, [connectErrors]))
 
 
 
 
   
   return (
-    <RadixFormRoot className={"Root "} css={({ ["width"] : "100%" })} onSubmit={handleSubmit_bf90a9978f1d4249070af021d55b9682}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"4"}>
-
-<RadixThemesTextField.Root id={"company"} name={"company"} placeholder={"company"} ref={ref_company}/>
-<RadixThemesTextField.Root id={"car_model"} name={"car_model"} placeholder={"car_model"} ref={ref_car_model}/>
-<RadixThemesTextField.Root id={"price"} name={"price"} placeholder={"price"} ref={ref_price}/>
-<RadixThemesTextField.Root id={"image"} name={"image"} placeholder={"image"} ref={ref_image}/>
-<RadixThemesTextField.Root id={"horse_power"} name={"horse_power"} placeholder={"horse_power"} ref={ref_horse_power}/>
-<RadixThemesTextField.Root id={"car_length"} name={"car_length"} placeholder={"car_length"} ref={ref_car_length}/>
-<RadixThemesTextField.Root id={"car_width"} name={"car_width"} placeholder={"car_width"} ref={ref_car_width}/>
-<RadixThemesTextField.Root id={"car_height"} name={"car_height"} placeholder={"car_height"} ref={ref_car_height}/>
-<RadixThemesTextField.Root id={"seats"} name={"seats"} placeholder={"seats"} ref={ref_seats}/>
-<RadixThemesTextField.Root id={"doors"} name={"doors"} placeholder={"doors"} ref={ref_doors}/>
-<RadixThemesTextField.Root id={"acceleration_to_100"} name={"acceleration_to_100"} placeholder={"acceleration_to_100"} ref={ref_acceleration_to_100}/>
-<RadixThemesButton type={"submit"}>
-
-{"Add Car"}
-</RadixThemesButton>
-</RadixThemesFlex>
-</RadixFormRoot>
+    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
   )
 }
 
@@ -202,6 +202,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_777ed807918809d992b62ed4157b1ecc/>
+    <Errorboundary_1c598bb412f120828c029dc071940ca4/>
   )
 }

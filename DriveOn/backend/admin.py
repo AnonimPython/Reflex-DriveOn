@@ -1,26 +1,40 @@
 import reflex as rx
 from ..ui.colors import *
 from ..ui.admin_pannel import admin_pannel
-
-
-from datetime import datetime
-
-import asyncio
-
-# Состояние для хранения текущего времени
-class ClockState(rx.State):
-    current_time: str = ""
-
-    # Функция для обновления времени
-    async def update_time(self):
-        while True:
-            self.current_time = datetime.now().strftime("%H:%M:%S")  # Формат времени: часы:минуты:секунды
-            await asyncio.sleep(1)  # Обновление каждую секунду
-
-    # Запуск обновления времени при загрузке страницы
-    def on_load(self):
-        return self.update_time()
+import requests
+import os
+from dotenv import load_dotenv
+load_dotenv()
+def get_weather():
+    city = "Moscow"
+    global temp_C, weather
+    
+    try:
+        weather_data = requests.get(
+            f"https://api.openweathermap.org/data/2.5/weather?q={city}&units=imperial&APPID={os.getenv('WEATHER_API_KEY')}",
+            timeout=10
+        )
+        weather = weather_data.json()['weather'][0]['main']
+        temp_F = round(weather_data.json()['main']['temp'])
+        temp_C = round((temp_F - 32) / 1.8)
+        return rx.hstack(
+            rx.icon(tag="cloud"),
+            rx.text(f"{city}",), 
+            rx.text(f"{temp_C} °C",),
+            color="white",
+            text_align="center",
+            align="center",
+            align_items="center",
+            margin_left="50%",
+                                
+        )
         
+    except requests.exceptions.RequestException:
+        weather = "N/A"
+        temp_C = 0
+        return rx.text(
+            f"{city}"), rx.text(f"{temp_C} °C"
+        )
 
 
 def admin() -> rx.Component:
@@ -29,8 +43,7 @@ def admin() -> rx.Component:
             #* left
             rx.vstack(
                 admin_pannel(),
-                rx.text(ClockState.current_time, font_size="2em", font_weight="bold",color="white"),
-
+                get_weather(),
             ),
             
             #* right
