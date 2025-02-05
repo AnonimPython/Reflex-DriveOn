@@ -15,6 +15,39 @@ import NextHead from "next/head"
 
 
 
+export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
+  
+  const { resolvedColorMode } = useContext(ColorModeContext)
+
+  refs['__toast'] = toast
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
+  const [userDismissed, setUserDismissed] = useState(false);
+  (useEffect(
+() => {
+    if ((connectErrors.length >= 2)) {
+        if (!userDismissed) {
+            toast.error(
+                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
+                {...toast_props, onDismiss: () => setUserDismissed(true)},
+            )
+        }
+    } else {
+        toast.dismiss("websocket-error");
+        setUserDismissed(false);  // after reconnection reset dismissed state
+    }
+}
+, [connectErrors]))
+
+
+
+
+  
+  return (
+    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
+  )
+}
+
 const pulse = keyframes`
     0% {
         opacity: 0;
@@ -25,102 +58,7 @@ const pulse = keyframes`
 `
 
 
-export function Text_29baa859d222136567f3da982789b137 () {
-  
-  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
-
-
-
-
-
-  
-  return (
-    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
-
-{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
-</RadixThemesText>
-  )
-}
-
-export function Box_d0078e78676f6f7cac1a76a2fbd90f6a () {
-  
-  
-                useEffect(() => {
-                    ((...args) => (addEvents([(Event("reflex___state____state.drive_on___pages___main____cars_db_state.get_cars", ({  }), ({  })))], args, ({  }))))()
-                    return () => {
-                        
-                    }
-                }, []);
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const reflex___state____state__drive_on___pages___main____cars_db_state = useContext(StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state)
-
-
-
-
-
-  
-  return (
-    <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
-
-<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_8949c8f45b7683b0) => (
-  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_8949c8f45b7683b0}>
-
-<img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
-<RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
-<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "24%", ["left"] : "25%", ["transform"] : "translate(-50%, -50%)", ["zIndex"] : "2" })}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
-
-<RadixThemesText as={"p"} css={({ ["marginBottom"] : "30px" })} size={"3"}>
-
-{car["company"]}
-</RadixThemesText>
-<RadixThemesText as={"p"} size={"8"} weight={"bold"}>
-
-{car["car_model"]}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesBox>
-<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "70%", ["left"] : "9%", ["zIndex"] : "2" })}>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["width"] : "100%" })} direction={"row"} gap={"3"}>
-
-<RadixThemesBox>
-
-<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
-
-<RadixThemesText as={"p"} css={({ ["color"] : "#9c9c9c" })} size={"4"}>
-
-{"Rent Price"}
-</RadixThemesText>
-<RadixThemesText as={"p"} css={({ ["color"] : "white" })} size={"6"}>
-
-{("$"+car["price"])}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesBox>
-</RadixThemesFlex>
-</RadixThemesBox>
-<RadixThemesBox>
-
-<RadixThemesBox css={({ ["padding"] : "15px", ["borderRadius"] : "50%", ["border"] : "1px solid #272727", ["alignItems"] : "center", ["background"] : "#e8ea00", ["position"] : "absolute", ["top"] : "74%", ["left"] : "78%", ["zIndex"] : "2" })}>
-
-<RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
-
-<NextLink href={("/car/"+car["id"])} passHref={true}>
-
-<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
-</NextLink>
-</RadixThemesLink>
-</RadixThemesBox>
-</RadixThemesBox>
-</RadixThemesBox>
-))}</>
-</RadixThemesBox>
-  )
-}
-
-export function Errorboundary_aed6103fdc63f3939baba090c40ae878 () {
+export function Errorboundary_7de53957b6b6b40248fefa89f4339cfa () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
 
@@ -285,7 +223,7 @@ export function Errorboundary_aed6103fdc63f3939baba090c40ae878 () {
 </RadixThemesScrollArea>
 </RadixThemesBox>
 </RadixThemesContainer>
-<Box_d0078e78676f6f7cac1a76a2fbd90f6a/>
+<Box_ff6ef46cf1a686da5fc4f2dce54fd476/>
 <RadixThemesBox>
 
 <Fragment>
@@ -350,6 +288,101 @@ export function Div_602c14884fa2de27f522fe8f94374b02 () {
   )
 }
 
+export function Box_ff6ef46cf1a686da5fc4f2dce54fd476 () {
+  
+  
+                useEffect(() => {
+                    ((...args) => (addEvents([(Event("reflex___state____state.drive_on___pages___main____cars_db_state.get_cars", ({  }), ({  })))], args, ({  }))))()
+                    return () => {
+                        
+                    }
+                }, []);
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+  const reflex___state____state__drive_on___pages___main____cars_db_state = useContext(StateContexts.reflex___state____state__drive_on___pages___main____cars_db_state)
+
+
+
+
+
+  
+  return (
+    <RadixThemesBox css={({ ["marginTop"] : "30px" })}>
+
+<>{reflex___state____state__drive_on___pages___main____cars_db_state.cars.map((car, index_7080c22f89383eb6) => (
+  <RadixThemesBox css={({ ["position"] : "relative", ["width"] : "100%", ["height"] : "322px", ["overflow"] : "hidden" })} key={index_7080c22f89383eb6}>
+
+<img css={({ ["width"] : "100%", ["height"] : "100%", ["objectFit"] : "cover" })} src={car["image"]}/>
+<RadixThemesBox css={({ ["background"] : "rgba(0, 0, 0, 0.5)", ["position"] : "absolute", ["top"] : "0", ["left"] : "0", ["right"] : "0", ["bottom"] : "0" })}/>
+<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "24%", ["left"] : "25%", ["transform"] : "translate(-50%, -50%)", ["zIndex"] : "2" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
+
+<RadixThemesText as={"p"} css={({ ["marginBottom"] : "30px" })} size={"3"}>
+
+{car["company"]}
+</RadixThemesText>
+<RadixThemesText as={"p"} size={"8"} weight={"bold"}>
+
+{car["car_model"]}
+</RadixThemesText>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox css={({ ["color"] : "white", ["position"] : "absolute", ["top"] : "70%", ["left"] : "9%", ["zIndex"] : "2" })}>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} css={({ ["width"] : "100%" })} direction={"row"} gap={"3"}>
+
+<RadixThemesBox>
+
+<RadixThemesFlex align={"start"} className={"rx-Stack"} direction={"column"} gap={"3"}>
+
+<RadixThemesText as={"p"} css={({ ["color"] : "#9c9c9c" })} size={"4"}>
+
+{"Rent Price"}
+</RadixThemesText>
+<RadixThemesText as={"p"} css={({ ["color"] : "white" })} size={"6"}>
+
+{("$"+car["price"])}
+</RadixThemesText>
+</RadixThemesFlex>
+</RadixThemesBox>
+</RadixThemesFlex>
+</RadixThemesBox>
+<RadixThemesBox>
+
+<RadixThemesBox css={({ ["padding"] : "15px", ["borderRadius"] : "50%", ["border"] : "1px solid #272727", ["alignItems"] : "center", ["background"] : "#e8ea00", ["position"] : "absolute", ["top"] : "74%", ["left"] : "78%", ["zIndex"] : "2" })}>
+
+<RadixThemesLink asChild={true} css={({ ["color"] : "#9c9c9c", ["&:hover"] : ({ ["color"] : "var(--accent-8)" }) })} target={(false ? "_blank" : "")}>
+
+<NextLink href={("/car/"+car["id"])} passHref={true}>
+
+<LucideArrowRightIcon css={({ ["color"] : "black" })}/>
+</NextLink>
+</RadixThemesLink>
+</RadixThemesBox>
+</RadixThemesBox>
+</RadixThemesBox>
+))}</>
+</RadixThemesBox>
+  )
+}
+
+export function Text_29baa859d222136567f3da982789b137 () {
+  
+  const reflex___state____state__drive_on___state____user_data = useContext(StateContexts.reflex___state____state__drive_on___state____user_data)
+
+
+
+
+
+  
+  return (
+    <RadixThemesText as={"p"} css={({ ["align-items"] : "center", ["align-self"] : "center", ["font-size"] : "20px", ["color"] : "white" })}>
+
+{("Hey! "+reflex___state____state__drive_on___state____user_data.username)}
+</RadixThemesText>
+  )
+}
+
 export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   
   const [addEvents, connectErrors] = useContext(EventLoopContext);
@@ -374,39 +407,6 @@ export function Fragment_f2f0916d2fcc08b7cdf76cec697f0750 () {
   )
 }
 
-export function Toaster_6e6ebf8d7ce589d59b7d382fb7576edf () {
-  
-  const { resolvedColorMode } = useContext(ColorModeContext)
-
-  refs['__toast'] = toast
-  const [addEvents, connectErrors] = useContext(EventLoopContext);
-  const toast_props = ({ ["description"] : ("Check if server is reachable at "+getBackendURL(env.EVENT).href), ["closeButton"] : true, ["duration"] : 120000, ["id"] : "websocket-error" });
-  const [userDismissed, setUserDismissed] = useState(false);
-  (useEffect(
-() => {
-    if ((connectErrors.length >= 2)) {
-        if (!userDismissed) {
-            toast.error(
-                `Cannot connect to server: ${((connectErrors.length > 0) ? connectErrors[connectErrors.length - 1].message : '')}.`,
-                {...toast_props, onDismiss: () => setUserDismissed(true)},
-            )
-        }
-    } else {
-        toast.dismiss("websocket-error");
-        setUserDismissed(false);  // after reconnection reset dismissed state
-    }
-}
-, [connectErrors]))
-
-
-
-
-  
-  return (
-    <Toaster closeButton={false} expand={true} position={"bottom-right"} richColors={true} theme={resolvedColorMode}/>
-  )
-}
-
 export default function Component() {
     
 
@@ -414,6 +414,6 @@ export default function Component() {
 
 
   return (
-    <Errorboundary_aed6103fdc63f3939baba090c40ae878/>
+    <Errorboundary_7de53957b6b6b40248fefa89f4339cfa/>
   )
 }

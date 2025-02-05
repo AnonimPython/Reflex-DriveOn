@@ -1,41 +1,21 @@
 import reflex as rx
 from ..ui.colors import *
 from ..ui.admin_pannel import admin_pannel
-import requests
-import os
-from dotenv import load_dotenv
-load_dotenv()
-def get_weather():
-    city = "Moscow"
-    global temp_C, weather
-    
-    try:
-        weather_data = requests.get(
-            f"https://api.openweathermap.org/data/2.5/weather?q={city}&units=imperial&APPID={os.getenv('WEATHER_API_KEY')}",
-            timeout=10
-        )
-        weather = weather_data.json()['weather'][0]['main']
-        temp_F = round(weather_data.json()['main']['temp'])
-        temp_C = round((temp_F - 32) / 1.8)
-        return rx.hstack(
-            rx.icon(tag="cloud"),
-            rx.text(f"{city}",), 
-            rx.text(f"{temp_C} °C",),
-            color="white",
-            text_align="center",
-            align="center",
-            align_items="center",
-            margin_left="50%",
-                                
-        )
-        
-    except requests.exceptions.RequestException:
-        weather = "N/A"
-        temp_C = 0
-        return rx.text(
-            f"{city}"), rx.text(f"{temp_C} °C"
-        )
+from ..backend.get_weather import get_weather
 
+from ..database import Cars
+from sqlalchemy import select,func
+
+
+class CountState(rx.State):
+    count: int = 0
+
+    @rx.event
+    def get_count(self):
+        with rx.session() as session:
+            #* use func.count to count how many data are in the database
+            total_count = session.exec(select(func.count(Cars.id)))
+            self.count = total_count.one()[0]  # get the count value
 
 def admin() -> rx.Component:
     return rx.box(
@@ -47,7 +27,12 @@ def admin() -> rx.Component:
             ),
             
             #* right
-            
+            rx.box(
+                rx.text(f"All Cars: {CountState.count}", font_size="40px", color=YELLOW, weight="bold",margin_bottom="20px"),
+                margin_left="30px",  
+                margin_top="30px",
+                on_mount=CountState.get_count,
+            ),
         ),
         background_color=ADMIN_BACKGROUND,
         height="100vh",

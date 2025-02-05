@@ -6,8 +6,13 @@ def admin_pannel():
     return rx.box(
             rx.center(
                 rx.vstack(
-                    rx.text("DriveOn", color="white", size="8", weight="bold", margin_bottom="20px"),
+                    rx.text("DriveOn", color="white", size="8", weight="bold", margin_bottom="20px",margin_top="10px"),
                     rx.text("Admin Panel", color=YELLOW, size="8", weight="bold", margin_bottom="20px"),
+                    admin_links(
+                        href="/admin",
+                        title="Main",
+                        icon="layers-2",
+                    ),
                     admin_links(
                         href="/add_car",
                         title="Add Car",
